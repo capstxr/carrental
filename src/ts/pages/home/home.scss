@@ -1,0 +1,47 @@
+#home-hero {
+	background-color: #000;
+	display: flex;
+	flex-direction: column;
+	gap: 36px;
+}
+
+#home-hero-bg {
+	object-fit: cover;
+	filter: blur(1px);
+	opacity: 0.6;
+}
+
+#home-hero-bmw {
+	height: 450px;
+	object-fit: cover;
+	right: -40px;
+	bottom: 175px;
+}
+
+#home-hero-moped {
+	bottom: 140px;
+	right: -90px;
+	object-fit: cover;
+	height: 450px;
+	-moz-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+
+#home-hero-head {
+	width: 650px;
+	line-height: 125%;
+}
+
+#home-hero-text {
+	margin-top: 24px;
+	width: 550px;
+}
+
+.home-hero-btns {
+	margin-top: 40px;
+	display: flex;
+	flex-direction: row;
+	gap: 24px;
+}

@@ -1,0 +1,211 @@
+// Global & Body styles
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-family: 'Poppins', sans-serif;
+}
+
+body {
+	width: 100vw;
+	overflow-x: hidden;
+	position: relative;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+// Page layout styles
+
+.main {
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+}
+
+.relative {
+	position: relative;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.w100 {
+	width: 100%;
+}
+
+.h100 {
+	height: 100%;
+}
+
+.w100vw {
+	width: 100vw;
+}
+
+.h100vh {
+	height: 100vh;
+}
+
+.z-0 {
+	z-index: 0;
+}
+
+.z-1 {
+	z-index: 1;
+}
+
+.z-2 {
+	z-index: 2;
+}
+
+.z-3 {
+	z-index: 3;
+}
+
+.z-4 {
+	z-index: 4;
+}
+
+.wrapper {
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.content {
+		width: 100%;
+		max-width: 1200px;
+	}
+}
+
+// Font sizes & styles
+
+.fs-54 {
+	font-size: 54px;
+}
+
+.fs-42 {
+	font-size: 42px;
+}
+
+.fs-36 {
+	font-size: 36px;
+}
+
+.fs-24 {
+	font-size: 24px;
+}
+
+.fs-20 {
+	font-size: 20px;
+}
+
+.fs-18 {
+	font-size: 18px;
+}
+
+.fs-16 {
+	font-size: 16px;
+}
+
+.fw-550 {
+	font-weight: 550;
+}
+
+.fw-500 {
+	font-weight: 500;
+}
+
+.fw-450 {
+	font-weight: 450;
+}
+
+.fw-400 {
+	font-weight: 400;
+}
+
+.ls-125 {
+	letter-spacing: 1.25px;
+}
+
+.ls-12 {
+	letter-spacing: 1.2px;
+}
+
+.ls-1 {
+	letter-spacing: 1px;
+}
+
+.ls-075 {
+	letter-spacing: 0.75px;
+}
+
+.ls-05 {
+	letter-spacing: 0.5px;
+}
+
+.ls-03 {
+	letter-spacing: 0.3px;
+}
+
+.upper {
+	text-transform: uppercase;
+}
+
+.capital {
+	text-transform: capitalize;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.no-deco {
+	text-decoration: none;
+}
+
+// Text color styles
+
+.white {
+	color: #fff;
+}
+
+.gray-1 {
+	color: var(--gray-1);
+}
+
+.black {
+	color: #000;
+}
+
+// Background colors
+
+.white-bg {
+	background-color: #fff;
+}
+
+.white-border {
+	border: 1px solid #fff !important;
+}
+
+.transparent {
+	background-color: transparent;
+}
+
+// Buttons
+
+.btn-1 {
+	outline: none;
+	border: none;
+	padding: 8px 24px;
+	border-radius: 4px;
+}
