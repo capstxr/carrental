@@ -70,6 +70,83 @@ const Home = () => {
 						</Link>
 					</div>
 				</div>
+
+				<section
+					id="quick-search"
+					className="wrapper transparent absolute z-4"
+				>
+					<div
+						className="content white-bg h100 gray-3-border"
+						id='quick-search-content'
+					>
+						<div
+							className="quick-search-grid w100 h100"
+						>
+							<div className="quick-search-item">
+								<span
+									className="fs-16 black fw-500 ls-05"
+								>
+									Location
+								</span>
+
+								<input
+									type="text"
+									name=""
+									id="" 
+									placeholder='Select Location'
+									className='p-6-12'
+								/>
+							</div>
+
+							<div className="quick-search-item">
+								<span
+									className="fs-16 black fw-500 ls-05"
+								>
+									Pick-Up
+								</span>
+
+								<input
+									type="text"
+									name=""
+									id="" 
+									placeholder='Select Location'
+									className='p-6-12'
+								/>
+							</div>
+
+							
+							<div className="quick-search-item">
+								<span
+									className="fs-16 black fw-500 ls-05"
+								>
+									Date
+								</span>
+
+								<input
+									type="date"
+									name=""
+									id="" 
+									className='p-6-12'
+								/>
+							</div>
+
+							<div className="quick-search-item">
+								<span
+									className="fs-16 black fw-500 ls-05"
+								>
+									Find your car now
+								</span>
+
+								<Link
+									to='/search-rent'
+									className='dark-gray-bg no-deco btn-1 white fs-16 fw-500 text-center'
+								>
+									Search Now
+								</Link>
+							</div>
+						</div>
+					</div>
+				</section>
 			</section>
 		</main>
 	);

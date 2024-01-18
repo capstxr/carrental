@@ -10,7 +10,7 @@ const Header = () => {
 	return (
 		<header
 			id="header"
-			className="wrapper"
+			className="wrapper dark-gray-bg"
 		>
 			<nav
 				id="nav"

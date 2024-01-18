@@ -45,3 +45,37 @@
 	flex-direction: row;
 	gap: 24px;
 }
+
+// Quick rental search
+
+#quick-search {
+	height: 120px;	
+	bottom: -60px;
+}
+
+#quick-search-content {
+	border-radius: 4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 36px;
+}
+
+.quick-search-grid {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+	gap: 36px;
+}
+
+.quick-search-item {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	width: 100%;
+}
+
+.quick-search-item:last-child {
+	width: 800px;
+}
