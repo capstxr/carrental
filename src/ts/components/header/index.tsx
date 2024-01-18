@@ -14,9 +14,9 @@ const Header = () => {
 		>
 			<nav
 				id="nav"
-				className="content"
+				className="content flex justify-space align-center"
 			>
-				<ul className="nav-list">
+				<ul className="nav-list flex align-center gap-24">
 					<li className="nav-item">
 						<Link
 							to='/'
@@ -28,7 +28,7 @@ const Header = () => {
 					</li>
 				</ul>
 
-				<ul className="nav-list">
+				<ul className="nav-list flex align-center gap-24">
 					<li className="nav-item">
 						<Link
 							to='/'
@@ -70,7 +70,7 @@ const Header = () => {
 					</li>
 				</ul>
 
-				<ul className="nav-list">
+				<ul className="nav-list flex align-center gap-24">
 					<li className="nav-item">
 						<Link
 							to='/register'

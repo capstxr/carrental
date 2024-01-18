@@ -39,6 +39,14 @@ html {
 	width: 100%;
 }
 
+.w50 {
+	width: 50% !important;
+}
+
+.w50vw {
+	width: 50vw !important;
+}
+
 .h100 {
 	height: 100%;
 }
@@ -115,6 +123,26 @@ html {
 
 .fs-16 {
 	font-size: 16px;
+}
+
+.fs-14 {
+	font-size: 14px;
+}
+
+.lh-200 {
+	line-height: 200%;
+}
+
+.lh-150 {
+	line-height: 150%;
+}
+
+.lh-125 {
+	line-height: 125%;
+}
+
+.fw-600 {
+	font-weight: 600;
 }
 
 .fw-550 {
@@ -201,6 +229,10 @@ html {
 	border: 1px solid #fff !important;
 }
 
+.gray-bg-1 {
+	background-color: var(--gray-bg-1);
+}
+
 .gray-3-border {
 	border: 2px solid var(--gray-3) !important;
 }
@@ -228,20 +260,82 @@ html {
 
 // Padding
 
-.p-6-12 {
-	padding: 6px 12px;
-}
-
-.p-8-16 {
-	padding: 8px 16px;
+.p-12-36 {
+	padding: 12px 36px;
 }
 
 .p-8-24 {
 	padding: 8px 24px;
 }
 
+.p-8-16 {
+	padding: 8px 16px;
+}
+
+.p-6-12 {
+	padding: 6px 12px;
+}
+
+.p-36 {
+	padding: 36px;
+}
+
+.p-12 {
+	padding: 12px;
+}
+
 // Border
 
 .b-4 {
 	border-radius: 4px;
+}
+
+// Flex stuff
+
+.flex {
+	display: flex;
+}
+
+.flex-column {
+	flex-direction: column;
+}
+
+.align-start {
+	align-items: start !important;
+}
+
+.justify-start {
+	justify-content: start !important;
+}
+
+.align-center {
+	align-items: center !important;
+}
+
+.justify-center {
+	justify-content: center !important;
+}
+
+.justify-space {
+	justify-content: space-between !important;
+}
+
+// Gap
+
+.gap-24 {
+	gap: 24px;
+}
+
+.gap-12 {
+	gap: 12px;
+}
+
+// Margin
+
+.m-t-40 {
+	margin-top: 40px;
+}
+
+.m-t-20 {
+	margin-top: 20px;
 }

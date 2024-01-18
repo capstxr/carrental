@@ -1,7 +1,5 @@
 #home-hero {
 	background-color: #000;
-	display: flex;
-	flex-direction: column;
 	gap: 36px;
 }
 
@@ -41,9 +39,6 @@
 
 .home-hero-btns {
 	margin-top: 40px;
-	display: flex;
-	flex-direction: row;
-	gap: 24px;
 }
 
 // Quick rental search
@@ -53,19 +48,7 @@
 	bottom: -60px;
 }
 
-#quick-search-content {
-	border-radius: 4px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 36px;
-}
-
 .quick-search-grid {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	flex-direction: row;
 	gap: 36px;
 }
 
@@ -78,4 +61,35 @@
 
 .quick-search-item:last-child {
 	width: 800px;
+}
+
+// Features
+
+#features {
+	display: flex;
+	flex-direction: column;
+	gap: 150px;
+	margin-top: 120px;
+}
+
+#thumbs_up {
+	right: -20px;
+	height: 350px;
+	width: 900px;
+	object-fit: cover;
+}
+
+#thumbs_up_1 {
+	left: -20px;
+	height: 350px;
+	width: 900px;
+	object-fit: cover;
+}
+
+.feature-width-text {
+	width: 620px;
+}
+
+.feature-right-content {
+	margin-left: 900px;
 }
