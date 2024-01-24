@@ -153,113 +153,122 @@ const Home = () => {
 				className='100vw'
 			>
 				<section id="rent-a-car" className="wrapper flex relative">
-					<img
-						src="/images/home/features/thumbs_up.png"
-						alt="Thumbs up"
-						loading='eager'
-						className="absolute"
-						id='thumbs_up'
-					/>
-
 					<div 
-						className="content align-start"
+						className="content flex align-center gap-36"
 					>
-						<h2 className="fs-36 fw-600 ls-125 black capital">
-							Rent a car
-						</h2>
+						<div className='flex flex-column'>
+							<h2 className="fs-36 fw-600 ls-125 black capital">
+								Rent a car
+							</h2>
 
-						<div className="flex gap-12 align-center m-t-20">
-							<div className="gray-bg-1 p-6-12 b-4 flex align-center justify-center">
-								<span className="upper fs-14 fw-400 ls-03 gray-1">
-									Luxury
-								</span>
+							<div className="flex gap-12 align-center m-t-20">
+								<div className="gray-bg-1 p-6-12 b-4 flex align-center justify-center">
+									<span className="upper fs-14 fw-400 ls-03 gray-1">
+										Luxury
+									</span>
+								</div>
+
+								<div className="gray-bg-1 p-6-12 b-4 flex align-center justify-center">
+									<span className="upper fs-14 fw-400 ls-03 gray-1">
+										Comfort
+									</span>
+								</div>
+
+								<div className="gray-bg-1 p-6-12 b-4 flex align-center justify-center">
+									<span className="upper fs-14 fw-400 ls-03 gray-1">
+										Prestige
+									</span>
+								</div>
 							</div>
 
-							<div className="gray-bg-1 p-6-12 b-4 flex align-center justify-center">
-								<span className="upper fs-14 fw-400 ls-03 gray-1">
-									Comfort
-								</span>
-							</div>
+							<div
+								className="flex flex-column gap-24 align-start m-t-20"
+							>
+								<p
+									className="fs-16 black fw-400 lh-200 ls-03 feature-width-text"
+								>
+									Booking a self-driving car with us is simple and easy. You can browse our selection of vehicles online, choose the car that best fits your needs, and book it for the duration of your choice. Our user-friendly platform allows you to manage your bookings and view your trip history with ease. 
+								</p>
 
-							<div className="gray-bg-1 p-6-12 b-4 flex align-center justify-center">
-								<span className="upper fs-14 fw-400 ls-03 gray-1">
-									Prestige
-								</span>
+								<Link
+									to='/cars-for-rent'
+									className='b-4 p-6-12 dark-gray-bg white fs-16 fw-400 ls-05 capital no-deco btn-1'
+								>
+									Rent car
+								</Link>
 							</div>
 						</div>
 
-						<div
-							className="flex flex-column gap-24 align-start m-t-20"
-						>
-							<p
-								className="fs-16 black fw-400 lh-200 ls-03 feature-width-text"
-							>
-								Booking a self-driving car with us is simple and easy. You can browse our selection of vehicles online, choose the car that best fits your needs, and book it for the duration of your choice. Our user-friendly platform allows you to manage your bookings and view your trip history with ease. 
-							</p>
-
-							<Link
-								to='/cars-for-rent'
-								className='b-4 p-6-12 dark-gray-bg white fs-16 fw-400 ls-05 capital no-deco'
-							>
-								Rent car
-							</Link>
-						</div>
+						<img
+							src="/images/home/features/thumbs_up.png"
+							alt="Thumbs up"
+							loading='eager'
+							id='thumbs_up'
+						/>
 					</div>
 				</section>
 
 				<section id="rent-a-bike" className="wrapper flex relative">
-					<img
-						src="/images/home/features/thumbs_up.png"
-						alt="Thumbs up"
-						loading='eager'
-						className="absolute"
-						id='thumbs_up_1'
-					/>
-					
 					<div 
-						className="content align-start feature-right-content"
+						className="content flex align-center gap-36"
 					>
-						<h2 className="fs-36 fw-600 ls-125 black capital">
-							Rent a bike
-						</h2>
+						<img
+							src="/images/home/features/thumbs_up.png"
+							alt="Thumbs up"
+							loading='eager'
+							id='thumbs_up_1'
+						/>
 
-						<div className="flex gap-12 align-center m-t-20">
-							<div className="gray-bg-1 p-6-12 b-4 flex align-center justify-center">
-								<span className="upper fs-14 fw-400 ls-03 gray-1">
-									Luxury
-								</span>
+						<div className='flex flex-column'>
+							<h2 className="fs-36 fw-600 ls-125 black capital">
+								Rent a bike
+							</h2>
+
+							<div className="flex gap-12 align-center m-t-20">
+								<div className="gray-bg-1 p-6-12 b-4 flex align-center justify-center">
+									<span className="upper fs-14 fw-400 ls-03 gray-1">
+										Luxury
+									</span>
+								</div>
+
+								<div className="gray-bg-1 p-6-12 b-4 flex align-center justify-center">
+									<span className="upper fs-14 fw-400 ls-03 gray-1">
+										Comfort
+									</span>
+								</div>
+
+								<div className="gray-bg-1 p-6-12 b-4 flex align-center justify-center">
+									<span className="upper fs-14 fw-400 ls-03 gray-1">
+										Prestige
+									</span>
+								</div>
 							</div>
 
-							<div className="gray-bg-1 p-6-12 b-4 flex align-center justify-center">
-								<span className="upper fs-14 fw-400 ls-03 gray-1">
-									Comfort
-								</span>
-							</div>
-
-							<div className="gray-bg-1 p-6-12 b-4 flex align-center justify-center">
-								<span className="upper fs-14 fw-400 ls-03 gray-1">
-									Prestige
-								</span>
-							</div>
-						</div>
-
-						<div
-							className="flex flex-column gap-24 align-start m-t-20"
-						>
-							<p
-								className="fs-16 black fw-400 lh-200 ls-03 feature-width-text"
+							<div
+								className="flex flex-column gap-24 align-start m-t-20"
 							>
-								Booking a self-driving car with us is simple and easy. You can browse our selection of vehicles online, choose the car that best fits your needs, and book it for the duration of your choice. Our user-friendly platform allows you to manage your bookings and view your trip history with ease. 
-							</p>
+								<p
+									className="fs-16 black fw-400 lh-200 ls-03 feature-width-text"
+								>
+									Booking a self-driving car with us is simple and easy. You can browse our selection of vehicles online, choose the car that best fits your needs, and book it for the duration of your choice. Our user-friendly platform allows you to manage your bookings and view your trip history with ease. 
+								</p>
 
-							<Link
-								to='/cars-for-rent'
-								className='dark-gray-bg white fs-16 fw-400 ls-05 capital no-deco p-6-12 b-4'
-							>
-								Rent car
-							</Link>
+								<Link
+									to='/cars-for-rent'
+									className='dark-gray-bg white fs-16 fw-400 ls-05 capital no-deco p-6-12 b-4 btn-1'
+								>
+									Rent car
+								</Link>
+							</div>
 						</div>
 					</div>
+				</section>
+
+				<section
+					id="start-renting"
+					className='wrapper flexrelative'
+				>
+					
 				</section>
 			</section>
 		</main>
