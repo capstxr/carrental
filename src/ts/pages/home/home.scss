@@ -73,12 +73,13 @@
 }
 
 #thumbs_up, #thumbs_up_1 {
-	right: -20px;
+	width: 667px;
 	height: 350px;
-	width: 100%;
 	object-fit: cover;
 }
 
-.feature-width-text {
-	width: 100%;
+// Why choose us
+
+.why-us {
+	max-width: 50%;
 }

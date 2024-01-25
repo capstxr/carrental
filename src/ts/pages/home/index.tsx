@@ -254,21 +254,62 @@ const Home = () => {
 								</p>
 
 								<Link
-									to='/cars-for-rent'
+									to='/bikes-for-rent'
 									className='dark-gray-bg white fs-16 fw-400 ls-05 capital no-deco p-6-12 b-4 btn-1'
 								>
-									Rent car
+									Rent bike
 								</Link>
 							</div>
 						</div>
 					</div>
 				</section>
 
-				<section
-					id="start-renting"
-					className='wrapper flexrelative'
-				>
-					
+				<section id="why-us" className="wrapper">
+					<div className="content">
+						<div className="w100 flex justify-space align-center">
+							<div className="flex flex-column gap-12 why-us">
+								<h2 className="fs-36 fw-550 ls-1 capital black">
+									Why choose us
+								</h2>
+
+								<p className="black fs-16 fw-400 ls-05">
+									Booking a self-driving car with us is simple and easy. You can browse our selection of vehicles online, choose the car that best fits your needs, and book it for the duration of your choice.
+								</p>
+							</div>
+
+							<div className="flex gap-36 align-center justify-end">
+								<div className="flex flex-column align-center">
+									<h4 className="fw-550 fs-28 black ls-05">
+										45k+
+									</h4>
+
+									<span className="gray-1 fs-18 text-center ls-05 fw-400">
+										Success tour
+									</span>
+								</div>
+
+								<div className="flex flex-column align-center">
+									<h4 className="fw-550 fs-28 black ls-05">
+										1M+
+									</h4>
+
+									<span className="gray-1 fs-18 text-center ls-05 fw-400">
+										Happy customers
+									</span>
+								</div>
+
+								<div className="flex flex-column align-center">
+									<h4 className="fw-550 fs-28 black ls-05">
+										3+ Years
+									</h4>
+
+									<span className="gray-1 fs-18 text-center ls-05 fw-400">
+										In the business
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
 				</section>
 			</section>
 		</main>
