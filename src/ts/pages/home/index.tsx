@@ -1,10 +1,51 @@
 // Import modules
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 // Import page CSS
 import './home.scss';
 
 const Home = () => {
+	useEffect(() => {
+		document.title = "Drivee - Home";
+		window.scrollTo(0,0);
+	}, []);
+
+	interface ReviewProps {
+		image: string;
+		name: string;
+		head: string;
+		text: string;
+	}
+
+	const Review = (props: ReviewProps) => {
+		const { image, name, head, text } = props;
+
+		return (
+			<div className="review-wrapper relative">
+				<img
+					src={`/images/reviews/${image}`}
+					alt={`${name}`}
+					className="absolute z-0 w100 h100 review-image"
+				/>
+
+				<div className="review-content absolute z-1 flex flex-column gap-12 w100">
+					<span className="white fw-550 ls-05 fs-18">
+						{head}
+					</span>
+
+					<q className="white fw-400 fs-16 ls-05">
+						{text}
+					</q>
+
+					<span className="fs-20 fw-550 ls-05 white">
+						{name}
+					</span>
+				</div>
+			</div>
+		);
+	}
+
 	return (
 		<main className="main">
 			<section
@@ -277,14 +318,14 @@ const Home = () => {
 								</p>
 							</div>
 
-							<div className="flex gap-36 align-center justify-end">
+							<div className="flex gap-36 align-center justify-end stats">
 								<div className="flex flex-column align-center">
 									<h4 className="fw-550 fs-28 black ls-05">
 										45k+
 									</h4>
 
 									<span className="gray-1 fs-18 text-center ls-05 fw-400">
-										Success tour
+										Vehicles available
 									</span>
 								</div>
 
@@ -308,6 +349,37 @@ const Home = () => {
 									</span>
 								</div>
 							</div>
+						</div>
+					</div>
+				</section>
+
+				<section id="customer-reviews" className="wrapper">
+					<div className="content">
+						<h2 className="fs-42 black fw-550 ls-1 capital text-center">
+							What our customers say
+						</h2>
+
+						<div className="flex justify-space align-center review-grid">
+							<Review
+								image='male_car.webp'
+								name='Jack Williams'
+								head='Testing'
+								text='aiyuhbsdashid'
+							/>
+
+							<Review
+								image='male_car.webp'
+								name='Jack Williams'
+								head='Testing'
+								text='aiyuhbsdashid'
+							/>
+
+							<Review
+								image='male_car.webp'
+								name='Jack Williams'
+								head='Testing'
+								text='aiyuhbsdashid'
+							/>
 						</div>
 					</div>
 				</section>
