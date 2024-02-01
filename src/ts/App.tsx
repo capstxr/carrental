@@ -10,11 +10,12 @@ import Home from './pages/home';
 
 // Import global components
 import Header from './components/header';
+import Footer from './components/footer';
 
 function App() {
 	return (
 		<Router>
-			<Header/>
+			<Header />
 
 			<Routes>
 				<Route
@@ -22,6 +23,8 @@ function App() {
 					element={<Home/>}
 				/>
 			</Routes>
+
+			<Footer />
 		</Router>
 	);
 }

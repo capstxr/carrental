@@ -223,6 +223,10 @@ html {
 	color: #000;
 }
 
+.underline-hover:hover {
+	text-decoration: underline;
+}
+
 // Background colors
 
 .white-bg {
@@ -247,6 +251,10 @@ html {
 
 .transparent {
 	background-color: transparent;
+}
+
+.black-border {
+	border: 1px solid #000;
 }
 
 // Buttons
@@ -324,6 +332,16 @@ html {
 	justify-content: space-between !important;
 }
 
+// Grid
+
+.grid {
+	display: grid;
+}
+
+.temp-columns-2 {
+	grid-template-columns: repeat(2, 50%);
+}
+
 // Gap
 
 .gap-36 {
@@ -346,4 +364,22 @@ html {
 
 .m-t-20 {
 	margin-top: 20px;
+}
+
+// Cursor
+
+.c-pointer {
+	cursor: pointer;
+}
+
+@media screen and (max-width: 1300px) {
+	.wrapper .content {
+		max-width: 1100px;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.wrapper .content {
+		max-width: 1000px;
+	}
 }
