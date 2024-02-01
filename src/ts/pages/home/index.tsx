@@ -386,7 +386,7 @@ const Home = () => {
 							<div className="flex gap-36 align-center justify-end stats">
 								<div className="flex flex-column align-center">
 									<h4 className="fw-550 fs-28 black ls-05">
-										45k+
+										150+
 									</h4>
 
 									<span className="gray-1 fs-18 text-center ls-05 fw-400">
@@ -396,7 +396,7 @@ const Home = () => {
 
 								<div className="flex flex-column align-center">
 									<h4 className="fw-550 fs-28 black ls-05">
-										1M+
+										15K+
 									</h4>
 
 									<span className="gray-1 fs-18 text-center ls-05 fw-400">
@@ -406,7 +406,7 @@ const Home = () => {
 
 								<div className="flex flex-column align-center">
 									<h4 className="fw-550 fs-28 black ls-05">
-										3+ Years
+										6+ Years
 									</h4>
 
 									<span className="gray-1 fs-18 text-center ls-05 fw-400">
@@ -430,7 +430,7 @@ const Home = () => {
 							image='male_car.webp'
 							name='Jack Williams'
 							head='Best cars for rent in Europe'
-							text='I do businnes all around Europe all the time. Drivee really comes in handy for me. '
+							text='I do businnes around Europe all the time. This is where Drivee comes in really handy for me. They provide a nice and easy to use system.'
 						/>
 
 						<Review
@@ -441,10 +441,10 @@ const Home = () => {
 						/>
 
 						<Review
-							image='3.jpg'
+							image='3.webp'
 							name='Mary Poppins'
-							head='My go-to car rental company'
-							text="I'm a regular customer of five years. I like the pricing and wide selection of cars Drivee offers."
+							head='My go-to vehicle rental company'
+							text="I'm a regular customer of five years. I like the pricing and wide selection of vehicles Drivee offers for vacations and business standards."
 						/>
 					</div>
 				</div>
@@ -456,7 +456,7 @@ const Home = () => {
 						Frequently asked questions
 					</h2>
 
-					<div className="flex justify-center align-center gap-36 m-t-20">
+					<div className="flex justify-center align-center gap-36 m-t-20" id='tabs'>
 						<Tab name='General' index={0} />
 						<Tab name='Security' index={1} />
 						<Tab name='Booking' index={2} />
@@ -466,7 +466,7 @@ const Home = () => {
 
 					{activeTab == 0 && ( // General
 					<div
-						className="grid temp-columns-2 gap-36 w100 m-t-40"
+						className="grid temp-columns-2 justify-space row-gap-24 w100 m-t-40 q-grid"
 					>
 						<Question
 							q='General 1??'
@@ -502,7 +502,7 @@ const Home = () => {
 
 					{activeTab == 1 && ( // Security
 					<div
-						className="grid temp-columns-2 gap-36 w100 m-t-40"
+						className="grid temp-columns-2 justify-space w100 row-gap-24 m-t-40 q-grid"
 					>
 						<Question
 							q='Security 1??'
@@ -538,7 +538,7 @@ const Home = () => {
 
 					{activeTab == 2 && ( // Booking
 					<div
-						className="grid temp-columns-2 gap-36 w100 m-t-40"
+						className="grid temp-columns-2 justify-space w100 row-gap-24 m-t-40 q-grid"
 					>
 						<Question
 							q='Booking 1??'
@@ -574,7 +574,7 @@ const Home = () => {
 					
 					{activeTab == 3 && ( // Payment
 					<div
-						className="grid temp-columns-2 gap-36 w100 m-t-40"
+						className="grid temp-columns-2 justify-space w100 row-gap-24 m-t-40 q-grid"
 					>
 						<Question
 							q='Payment 1??'
@@ -610,7 +610,7 @@ const Home = () => {
 
 					{activeTab == 4 && ( // Other
 					<div
-						className="grid temp-columns-2 gap-36 w100 m-t-40"
+						className="grid temp-columns-2 justify-space w100 row-gap-24 m-t-40 q-grid"
 					>
 						<Question
 							q='Other 1??'

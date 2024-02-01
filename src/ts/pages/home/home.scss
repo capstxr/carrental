@@ -1,6 +1,7 @@
 #home-hero {
 	background-color: #000;
 	gap: 36px;
+	overflow-x: clip;
 }
 
 #home-hero-bg {
@@ -175,7 +176,7 @@
 
 @media screen and (max-width: 1300px) {
 	#home-hero {
-		height: 820px !important;
+		height: 100vh !important;
 	}
 
 	#home-hero-bmw {
@@ -194,6 +195,18 @@
 	#thumbs_up, #thumbs_up_1 {
 		width: 550px;
 	}
+
+	.review-grid {
+		gap: 14px;
+	}
+
+	.review-wrapper {
+		width: 100%;
+	}
+
+	.review-content {
+		height: 45%;
+	}
 }
 
 @media screen and (max-width: 1200px) {
@@ -209,5 +222,388 @@
 
 	#thumbs_up, #thumbs_up_1 {
 		height: 375px;
+	}
+}
+
+@media screen and (max-width: 1165px) {
+	#home-hero-bmw, #home-hero-moped {
+		height: 360px;
+	}
+}
+
+@media screen and (max-width: 1130px) {
+	#home-hero-bmw {
+		right: -240px;
+	}
+
+	#thumbs_up, #thumbs_up_1 {
+		width: 50%;
+	}
+
+	#features {
+		margin-top: 75px;
+		gap: 75px;
+	}
+
+	#quick-search {
+		height: 100px;
+		bottom: -50px;
+	}
+
+	.review-content {
+		height: 55%;
+	}
+}
+
+@media screen and (max-width: 1084px) {
+	#home-hero-bmw {
+		right: -275px;
+	}
+
+	#home-hero-moped {
+		height: 340px;
+		right: -140px;
+	}
+}
+
+@media screen and (max-width: 1070px) {
+	#features {
+		margin-top: 80px;
+		gap: 80px;
+	}
+
+	#home-hero .content {
+		margin-top: -120px;
+	}
+
+	#quick-search {
+		bottom: -120px;
+	}
+
+	#home-hero-bmw {
+		height: 400px;
+		bottom: 100px;
+	}
+
+	#home-hero-moped {
+		display: none;
+	}
+
+	.quick-search-item {
+		width: 100% !important;
+	}
+
+	.quick-search-grid {
+		gap: 14px !important;
+		padding: 6px 18px;
+	}
+
+	.review-wrapper {
+		height: 460px;
+		width: 100%;
+		aspect-ratio: auto;
+	}
+
+	.review-content {
+		height: 55%;
+		padding: 10px;
+	}
+	
+	.why-us {
+		width: 100%;
+	}
+
+	#why-us .content .w100 {
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 36px;
+	}
+
+	.stats {
+		gap: 64px !important;
+		text-align: center;
+		justify-content: center;
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	#home-hero .content {
+		margin-top: 0 !important;
+	}
+
+	#quick-search {
+		bottom: -60px;
+	}
+}
+
+@media screen and (max-width: 990px) {
+	.review-content {
+		height: 55%;
+
+		.fs-18 {
+			font-size: 17px !important;
+		}
+
+		.fs-16 {
+			font-size: 15px !important;
+		}
+
+		hr {
+			width: 24px;
+		}
+	}
+}
+
+@media screen and (max-width: 940px) {
+	#thumbs_up, #thumbs_up_1 {
+		width: 40%;
+		height: 400px;
+	}
+
+	#home-hero-bmw {
+		height: 380px;
+	}
+
+	.review-wrapper {
+		height: 320px;
+	}
+
+	.review-content {
+		height: 100%;
+		background-color: rgba(0,0,0,0.75);
+		border-radius: 8px;
+
+		.fs-18 {
+			font-size: 18px !important;
+		}
+
+		.fs-16 {
+			font-size: 16px !important;
+		}
+	}
+}
+
+@media screen and (max-width: 850px) {
+	#home-hero-bmw {
+		height: 360px;
+		right: -260px;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	#home-hero-bmw {
+		bottom: 80px;
+	}
+
+	.review-grid {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.review-wrapper {
+		aspect-ratio: auto;
+		width: 100%;
+		height: 220;
+	}
+
+	.review-content {
+		padding: 24px;
+
+		.fs-18 {
+			font-size: 20px !important;
+		}
+	}
+
+	.quote-end {
+		bottom: 24px;
+	}
+
+	.review-image {
+		object-position: center 15%;
+	}
+
+	#why-us .content .w100 {
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 36px;
+	}
+
+	.why-us {
+		width: 100%;
+	}
+
+	.stats {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		gap: 0;
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	#features {
+		gap: 60px;
+		margin-top: 60px;
+	}
+
+	#rent-a-car .content {
+		flex-direction: column;
+	}
+
+	#rent-a-bike .content {
+		flex-direction: column-reverse;
+	}
+
+	#thumbs_up, #thumbs_up_1 {
+		width: 100%;
+		height: 300px;
+	}
+
+	#home-hero-head {
+		font-size: 48px;
+		width: 100%;
+	}
+
+	#home-hero-text {
+		width: 100%;
+	}
+
+	#home-hero {
+		height: 75vh !important;
+	}
+
+	#home-hero-bmw {
+		display: none;
+	}
+
+	#tabs {
+		gap: 0;
+
+		.fs-18 {
+			font-size: 16px !important;
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	#home-hero-head {
+		font-size: 32px !important;
+	}
+
+	.stats {
+		gap: 24px !important;
+	}
+
+	.q-grid {
+		display: flex;
+		flex-direction: column;
+	}
+
+	#quick-search {
+		height: 400px;
+		bottom: -400px;
+		
+		.content {
+			padding: 24px;
+			border: none !important;
+		}
+	}
+
+	.quick-search-grid {
+		flex-direction: column;
+	}
+
+	#features {
+		margin-top: 400px;
+	}
+}
+
+@media screen and (max-width: 560px) {
+	#home-hero-head {
+		font-size: 42px;
+	}
+
+	#home-hero-text {
+		font-size: 16px;
+	}
+
+	#tabs {
+		flex-wrap: wrap;
+		gap: 24px;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	.stats {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		.fs-28 {
+			font-size: 28px;
+		}
+
+		.fs-18 {
+			font-size: 18px !important;
+		}
+	}
+}
+
+@media screen and (max-width: 420px) {
+	#thumbs_up, #thumbs_up_1 {
+		height: 240px;
+	}
+
+	#tabs {
+		display: grid;
+		grid-template-columns: repeat(2, calc(50% - 12px));
+		gap: 6px;
+		div {
+			width: 100%;
+			text-align: center;
+		}
+	}
+
+	#home-hero .content {
+		margin-top: 60px !important;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	.review-wrapper {
+		height: 360px;
+	}
+
+	.review-content {
+		padding: 18px;
+	}
+
+	#home-hero {
+		height: 90vh !important;
+
+		.content {
+			margin-top: 60px !important;
+		}
+	}
+
+	#home-hero-head {
+		font-size: 28px !important;
+	}
+
+	#home-hero-text {
+		margin-top: 10px;
+	}
+
+	.home-hero-btns {
+		flex-direction: column;
+		margin-top: 20px;
+
+		a {
+			text-align: center;
+		}
 	}
 }
