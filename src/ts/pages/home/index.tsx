@@ -61,7 +61,7 @@ const Home = () => {
 		const { name, index } = props;
 
 		// Check if current tab is active
-		const isTabActive = activeTab == index;
+		const isTabActive = activeTab === index;
 		
 		// Change colors accordingly
 		const colors = isTabActive
@@ -465,7 +465,7 @@ const Home = () => {
 						<Tab name='Others' index={4} />
 					</div>
 
-					{activeTab == 0 && ( // General
+					{activeTab === 0 && ( // General
 					<div
 						className="grid temp-columns-2 justify-space row-gap-24 w100 m-t-40 q-grid"
 					>
@@ -501,7 +501,7 @@ const Home = () => {
 					</div>
 					)}
 
-					{activeTab == 1 && ( // Security
+					{activeTab === 1 && ( // Security
 					<div
 						className="grid temp-columns-2 justify-space w100 row-gap-24 m-t-40 q-grid"
 					>
@@ -537,7 +537,7 @@ const Home = () => {
 					</div>
 					)}
 
-					{activeTab == 2 && ( // Booking
+					{activeTab === 2 && ( // Booking
 					<div
 						className="grid temp-columns-2 justify-space w100 row-gap-24 m-t-40 q-grid"
 					>
@@ -573,7 +573,7 @@ const Home = () => {
 					</div>
 					)}
 					
-					{activeTab == 3 && ( // Payment
+					{activeTab === 3 && ( // Payment
 					<div
 						className="grid temp-columns-2 justify-space w100 row-gap-24 m-t-40 q-grid"
 					>
@@ -609,7 +609,7 @@ const Home = () => {
 					</div>
 					)}
 
-					{activeTab == 4 && ( // Other
+					{activeTab === 4 && ( // Other
 					<div
 						className="grid temp-columns-2 justify-space w100 row-gap-24 m-t-40 q-grid"
 					>

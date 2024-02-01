@@ -1,3 +1,11 @@
+/*
+
+DESIGNS
+
+https://www.figma.com/file/ehQ0VXu8e8GaBZysLpP2E2/Floopyinn-Rental-Website-Ui--kit-(Community)?type=design&node-id=0-1&mode=design&t=5dULg0A8VDBiaPfk-0
+
+*/
+
 // Import packages
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
