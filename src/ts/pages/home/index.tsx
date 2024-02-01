@@ -32,6 +32,7 @@ const Home = () => {
 					src={`/images/reviews/${image}`}
 					alt={`${name}`}
 					className="absolute z-0 w100 h100 review-image"
+					loading='lazy'
 				/>
 
 				<div className="review-content absolute z-1 flex flex-column gap-12 w100">
@@ -308,7 +309,7 @@ const Home = () => {
 						<img
 							src="/images/home/features/thumbs_up.png"
 							alt="Thumbs up"
-							loading='eager'
+							loading='lazy'
 							id='thumbs_up'
 						/>
 					</div>
@@ -321,7 +322,7 @@ const Home = () => {
 						<img
 							src="/images/home/features/thumbs_up.png"
 							alt="Thumbs up"
-							loading='eager'
+							loading='lazy'
 							id='thumbs_up_1'
 						/>
 
