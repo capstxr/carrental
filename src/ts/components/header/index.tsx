@@ -26,6 +26,14 @@ const Header = () => {
 							Drivee
 						</Link>
 					</li>
+
+					<li className='nav-link'>
+						<button className="hamburger flex flex-column justify-space">
+							<span className='w100'/>
+							<span className='w100'/>
+							<span className='w100'/>
+						</button>
+					</li>
 				</ul>
 
 				<ul className="nav-list flex align-center gap-24">
