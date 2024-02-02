@@ -15,6 +15,10 @@
 	margin: 0;
 }
 
+.hamburger {
+	display: none;
+}
+
 @media screen and (max-width: 850px) {
 	.nav-list {
 		display: none;
@@ -30,6 +34,7 @@
 	}
 
 	.hamburger {
+		display: flex;
 		border: none;
 		outline: none;
 		width: 24px;
