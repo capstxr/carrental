@@ -15,11 +15,11 @@ const NotFound = () => {
         <main className="main">
             <section className="wrapper w100vw h100vh flex justify-center align-center">
                 <div className="content flex flex-column justify-center align-center">
-                    <h2 className="fs-72 fw-600 ls-05 lh-125">
+                    <h2 className="fs-72 fw-600 ls-05 lh-125" id='not-found-head'>
                         Oops!
                     </h2>
 
-                    <h3 className="fs-36 fw-500 ls-05 capital m-t-20">
+                    <h3 className="fs-36 fw-500 ls-05 capital m-t-20" id='not-found-2'>
                         Page not found!
                     </h3>
 
