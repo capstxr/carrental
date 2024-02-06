@@ -1,0 +1,15 @@
+#not-found-text {
+    width: 650px;
+}
+
+@media screen and (max-width: 1000px) {
+    #not-found-text {
+        width: 550px;
+    } 
+}
+
+@media screen and (max-width: 600px) {
+    #not-found-text {
+        width: 100%;
+    }
+}
