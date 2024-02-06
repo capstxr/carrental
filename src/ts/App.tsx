@@ -15,6 +15,7 @@ import '../css/colors.css';
 
 // Import Pages
 import Home from './pages/home';
+import About from './pages/about';
 import NotFound from './pages/not_found';
 
 // Import global components
@@ -30,6 +31,11 @@ function App() {
 				<Route
 					path='/'
 					element={<Home/>}
+				/>
+
+				<Route
+					path='/about'
+					element={<About/>}
 				/>
 
 				<Route

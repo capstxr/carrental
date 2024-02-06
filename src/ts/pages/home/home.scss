@@ -130,27 +130,6 @@
 	}
 }
 
-.q-wrapper {
-	overflow: hidden;
-
-	.icon {
-		transition: 0.25s;
-	}
-
-	.a {
-		display: none;
-	}
-}
-
-.q-wrapper.true {
-	.a {
-		display: block;
-	}
-
-	.icon {
-		transform: rotate(180deg);
-	}
-}
 
 @media screen and (max-width: 1620px) {
 	#home-hero-bmw, #home-hero-moped {
@@ -479,14 +458,6 @@
 	#home-hero-bmw {
 		display: none;
 	}
-
-	#tabs {
-		gap: 0;
-
-		.fs-18 {
-			font-size: 16px !important;
-		}
-	}
 }
 
 @media screen and (max-width: 600px) {
@@ -530,11 +501,6 @@
 	#home-hero-text {
 		font-size: 16px;
 	}
-
-	#tabs {
-		flex-wrap: wrap;
-		gap: 24px;
-	}
 }
 
 @media screen and (max-width: 450px) {
@@ -556,16 +522,6 @@
 @media screen and (max-width: 420px) {
 	#thumbs_up, #thumbs_up_1 {
 		height: 240px;
-	}
-
-	#tabs {
-		display: grid;
-		grid-template-columns: repeat(2, calc(50% - 12px));
-		gap: 6px;
-		div {
-			width: 100%;
-			text-align: center;
-		}
 	}
 
 	#home-hero .content {
