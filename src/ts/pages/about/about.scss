@@ -1,10 +1,6 @@
 #about-hero {
     height: 520px;
     background-color: #000;
-
-    .content {
-        padding: 24px 0;
-    }
 }
 
 .about-hero-img {
@@ -160,6 +156,10 @@
     .about-grid {
         gap: 12px;
     }
+
+    .a-hero-text {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 800px) {
@@ -197,6 +197,24 @@
     }
 }
 
+@media screen and (max-width: 750px) {
+    #about-hero {
+        .fs-54 {
+            font-size: 32px !important;
+            font-weight: 500 !important;
+        }
+
+        .fs-42 {
+            font-size: 28px !important;
+        }
+
+        hr {
+            width: 20px;
+            margin-top: 2px;
+        }
+    }
+}
+
 @media screen and (max-width: 650px) {
     .fleet-grid {
         display: flex;
@@ -206,5 +224,29 @@
     .fleet-img {
         height: auto;
         width: 75%;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .a-hero-head {
+        flex-direction: column;
+    }
+
+    #about-hero hr {
+        width: 75px;
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    #about-hero {
+        .fs-54 {
+            font-size: 28px !important;
+        }
+
+        .fs-42 {
+            font-size: 24px !important;
+            line-height: 125%;
+        }
     }
 }
