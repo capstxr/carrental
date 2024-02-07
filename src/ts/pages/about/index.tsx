@@ -199,7 +199,7 @@ const About = () => {
                             name='KPR 150'
                             image='kpr_150.png'
                             seats={2}
-                            price={15}
+                            price={16}
                             fuel_type='Gasoline'
                             gear_amount={5}
                             clutch='Manual'
@@ -224,6 +224,46 @@ const About = () => {
                             gear_amount={7}
                             clutch='Automatic'
                         />
+
+                        <Fleet
+                            name='Dethleffs I 7017 Trend'
+                            image='dethleffs.png'
+                            seats={4}
+                            price={48}
+                            fuel_type='Diesel'
+                            gear_amount={6}
+                            clutch='Manual'
+                        />
+
+                        <Fleet
+                            name='Kia Rio'
+                            image='kia_rio.png'
+                            seats={5}
+                            price={16}
+                            fuel_type='Gasoline'
+                            gear_amount={4}
+                            clutch='Automatic'
+                        />
+
+                        <Fleet
+                            name='Genergia LX 05'
+                            image='genergia_lx05.png'
+                            seats={2}
+                            price={14}
+                            fuel_type='Electric'
+                            gear_amount={1}
+                            clutch='Electric'
+                        />
+                    </div>
+
+                    <div className="w100 flex align-center justify-center m-t-20">
+                        <Link
+                            to='/cars-for-rent'
+                            rel='noreferrer noopener nofollow'
+                            className='white black-bg capital fw-450 fs-16 btn-1 no-deco ls-05 maxc'
+                        >
+                            View All
+                        </Link>
                     </div>
                 </div>
             </section>

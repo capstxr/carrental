@@ -63,6 +63,7 @@
 .fleet-wrapper {
     width: 100%;
     padding: 12px 0;
+    height: 530px;
 }
 
 .fleet-img {
@@ -111,5 +112,23 @@
         .fs-16 {
             font-size: 14px !important;
         }
+    }
+}
+
+@media screen and (max-width: 1070px) {
+    .fleet-grid {
+        grid-template-columns: repeat(2, calc(50% - 12px));
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .fleet-grid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .fleet-img {
+        height: auto;
+        width: 75%;
     }
 }
