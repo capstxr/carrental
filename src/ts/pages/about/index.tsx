@@ -9,9 +9,10 @@ import FAQ from '../../components/body/faq';
 import './about.scss';
 
 // Import icons
-import { GiCarSeat } from "react-icons/gi";
-import { FaBoltLightning } from "react-icons/fa6";
+import { GiCarSeat, GiGearStick } from "react-icons/gi";
+import { BsFuelPumpFill } from "react-icons/bs";
 import { IoIosPricetags } from "react-icons/io";
+import { TbAutomaticGearbox } from "react-icons/tb";
 
 const About = () => {
     useEffect(() => {
@@ -22,13 +23,16 @@ const About = () => {
     interface FleetProps {
         name: string;
         image: string;
-        horsepower: number;
         seats: number;
         price: number;
+        fuel_type: string;
+        gear_amount: number;
+        clutch: string;
     }
 
     const Fleet = (props: FleetProps) => {
-        const { name, image, horsepower, seats, price } = props;
+        const { name, image, seats, price, 
+            fuel_type, gear_amount, clutch } = props;
 
         return (
             <div className="fleet-wrapper flex flex-column gap-24 justify-center align-center gray-3-border b-4">
@@ -57,14 +61,38 @@ const About = () => {
                     </div>
 
                     <div className="flex gap-12 align-center">
-                        <FaBoltLightning className='fleet-icon'/>
+                        <BsFuelPumpFill className='fleet-icon'/>
                         
                         <span className="fs-18 black fw-450 ls-05">
-                            Horsepower
+                            Fuel type
                         </span>
 
                         <span className="gray-1 fs-16 fw-400 ls-05 m-t-2">
-                            {horsepower}
+                            {fuel_type}
+                        </span>
+                    </div>
+
+                    <div className="flex gap-12 align-center">
+                        <GiGearStick className='fleet-icon'/>
+                        
+                        <span className="fs-18 black fw-450 ls-05">
+                            Gearbox
+                        </span>
+
+                        <span className="gray-1 fs-16 fw-400 ls-05 m-t-2">
+                            {clutch}
+                        </span>
+                    </div>
+
+                    <div className="flex gap-12 align-center">
+                        <TbAutomaticGearbox className='fleet-icon'/>
+                        
+                        <span className="fs-18 black fw-450 ls-05">
+                            Gears
+                        </span>
+
+                        <span className="gray-1 fs-16 fw-400 ls-05 m-t-2">
+                            {gear_amount}
                         </span>
                     </div>
 
@@ -72,7 +100,7 @@ const About = () => {
                         <IoIosPricetags className='fleet-icon'/>
                         
                         <span className="fs-18 black fw-450 ls-05">
-                            Hourly price
+                            Daily price
                         </span>
 
                         <span className="gray-1 fs-16 fw-400 ls-05 m-t-2">
@@ -170,25 +198,31 @@ const About = () => {
                         <Fleet
                             name='KPR 150'
                             image='kpr_150.png'
-                            horsepower={14.8}
                             seats={2}
-                            price={14}
+                            price={15}
+                            fuel_type='Gasoline'
+                            gear_amount={5}
+                            clutch='Manual'
                         />
 
                         <Fleet
                             name='Jeep Renegade'
                             image='jeep.png'
-                            horsepower={182}
                             seats={5}
                             price={28}
+                            fuel_type='Gasoline'
+                            gear_amount={9}
+                            clutch='Automatic'
                         />
 
                         <Fleet
                             name='Audi A5 Sportback'
                             image='audi_a5.png'
-                            horsepower={190}
                             seats={5}
-                            price={28}
+                            price={32}
+                            fuel_type='Hybrid'
+                            gear_amount={7}
+                            clutch='Automatic'
                         />
                     </div>
                 </div>
