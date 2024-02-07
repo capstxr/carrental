@@ -367,7 +367,7 @@ const Home = () => {
 					<div className="flex justify-space align-center review-grid">
 						<Review
 							image='male_car.webp'
-							name='Jack Williams'
+							name='Ben Dover'
 							head='Best cars for rent in Europe'
 							text='I do businnes around Europe all the time. This is where Drivee comes in really handy for me. They provide a nice and easy to use system.'
 						/>
@@ -381,7 +381,7 @@ const Home = () => {
 
 						<Review
 							image='3.webp'
-							name='Mary Poppins'
+							name='Moe Lester'
 							head='My go-to vehicle rental company'
 							text="I'm a regular customer of five years. I like the pricing and wide selection of vehicles Drivee offers for vacations and business standards."
 						/>
