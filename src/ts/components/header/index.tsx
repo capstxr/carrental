@@ -185,7 +185,7 @@ const Header = () => {
     return (
         <header
 			id="header"
-			className={`wrapper dark-gray-bg ${isOpen && 'open'}`}
+			className={`wrapper dark-gray-bg ${isOpen}`}
 		>
             {modal && (
                 <div className="wrapper absolute w100vw h100vh flex justify-center align-center modal">
@@ -219,7 +219,7 @@ const Header = () => {
 							to='/'
 							rel='noreferrer noopener nofollow'
 							className='fs-24 fw-550 ls-12 capital no-deco white'
-							onClick={toggleMenu}
+							onClick={handleLinkClick}
 						>
 							Drivee
 						</Link>
@@ -228,7 +228,7 @@ const Header = () => {
 					<li className='nav-link'>
 						<button
 							className="hamburger flex flex-column justify-space"
-							onClick={handleLinkClick}
+							onClick={toggleMenu}
 						>
 							<span className='w100'/>
 							<span className='w100'/>
