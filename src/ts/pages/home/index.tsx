@@ -87,7 +87,7 @@ const Home = () => {
 						className="fs-54 fw-550 ls-12 capital white"
 						id='home-hero-head'
 					>
-						Unlock endless driving with drivee
+						Unlock endless driving with EzRental
 					</h1>
 
 					<p

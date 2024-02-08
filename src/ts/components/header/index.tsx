@@ -349,7 +349,7 @@ const Header = () => {
 							className='fs-24 fw-550 ls-12 capital no-deco white'
 							onClick={handleLinkClick}
 						>
-							Drivee
+							EzRental
 						</Link>
 					</li>
 

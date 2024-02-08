@@ -14,7 +14,7 @@ const Footer = () => {
             <div className="content flex justify-space">
                 <div className="flex flex-column">
                     <h2 className="fs-36 fw-550 ls-05 white">
-                        Drivee
+                        EzRental
                     </h2>
 
                     <p className="fs-18 fw-400 ls-05 gray-1 lh-150 m-t-20">

@@ -97,3 +97,13 @@
 	font-size: 24px;
 	color: rgb(175,0,0) !important;
 }
+
+@media screen and (max-width: 320px) {
+	#header .fs-24 {
+		font-size: 16px !important;
+	}
+
+	#header .btn-1 {
+		font-size: 14px !important;
+	}
+}
