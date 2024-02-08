@@ -23,7 +23,7 @@ const Footer = () => {
 
                     <div className="flex gap-24 align-center m-t-40">
                         <a
-                            href=""
+                            href="https://www.facebook.com/"
                             className="no-deco white fs-24"
                             rel='noreferrer noopener nofollow'
                         >
@@ -31,7 +31,7 @@ const Footer = () => {
                         </a>
 
                         <a
-                            href=""
+                            href="https://www.twitter.com/"
                             className="no-deco white fs-24"
                             rel='noreferrer noopener nofollow'
                         >
@@ -39,7 +39,7 @@ const Footer = () => {
                         </a>
 
                         <a
-                            href=""
+                            href="https://www.instagram.com/"
                             className="no-deco white fs-24"
                             rel='noreferrer noopener nofollow'
                         >
@@ -47,7 +47,7 @@ const Footer = () => {
                         </a>
 
                         <a
-                            href=""
+                            href="https://www.linkedin.com/"
                             className="no-deco white fs-24"
                             rel='noreferrer noopener nofollow'
                         >
