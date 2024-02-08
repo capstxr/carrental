@@ -7,13 +7,27 @@ import { IoIosMail } from 'react-icons/io';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import { FaUser } from 'react-icons/fa';
 import { RxCross2 } from 'react-icons/rx';
+import { MdOutlineErrorOutline } from "react-icons/md";
 
 // Import css
 import './header.scss';
 
+// Axios
+import axiosInstance from '../../../server/HostHandler';
+
 const Header = () => {
+	const [ isLoggedIn, setIsLoggedIn ] = useState<boolean>(false);
+
     const [isOpen, setIsOpen] = useState(false);
     const [modal, setModal] = useState('');
+
+	const [ userName, setUserName ] = useState<string>('');
+	const [ email, setEmail ] = useState<string>('');
+	const [ password, setPassword ] = useState<string>('');
+	const [ confirmPassword, setConfirmPassword ] = useState<string>('');
+
+	const [ error, setError ] = useState<string>('');
+	const [ errorId, setErrorId ] = useState<string>('');
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -33,7 +47,47 @@ const Header = () => {
         setIsOpen(false);
     };
 
-	const isLoggedIn = false;
+	async function handleRegister() {
+		try {
+			const response = await axiosInstance.post(
+				'/register', 
+				{
+					user: userName,
+					email: email,
+					password: password,
+					confirm_password: confirmPassword
+				}
+			);
+			setError(response.data.error);
+			setErrorId(response.data.id);
+
+			if (response.data.success)
+				openModal('success');
+		} catch (error) {
+			
+		}
+	}
+
+	async function handleLogin() {
+		try {
+			const response = await axiosInstance.post(
+				'/login', 
+				{
+					user: userName,
+					password: password
+				}
+			);
+
+			setError(response.data.error);
+
+			if (response.data.success) {
+				openModal('Success');
+				setIsLoggedIn(true);
+			}
+		} catch (error) {
+			
+		}
+	}
 
     const renderModalContent = () => {
         if (modal === 'login') {
@@ -45,9 +99,11 @@ const Header = () => {
 						<input
 							type="text"
 							name="user"
-							id="user"
+							id="user_login"
 							placeholder='Email or username'
 							className='input fs-16 fw-350'
+							value={userName}
+							onChange={(e) => setUserName(e.target.value)}
 						/>
 					</div>
 
@@ -57,21 +113,30 @@ const Header = () => {
 						<input
 							type="password"
 							name="password"
-							id="password"
+							id="password_login"
 							placeholder='Password'
 							className='input fs-16 fw-350'
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
 						/>
 					</div>
 
 					<div className="flex w100 justify-center align-center">
 						<button
 							className="black white-bg capital fw-450 fs-16 btn-1 no-deco ls-05 c-pointer w100 m-t-20"
+							onClick={handleLogin}
 						>
 							Sign In
 						</button>
 					</div>
 
-					<div className="flex gap-12 align-center justify-center w100 m-t-20">
+					{error && (
+						<span className="error-message fs-14 fw-400 ls-05 text-center">
+							{error}
+						</span>
+					)}
+
+					<div className="flex gap-12 align-center justify-center w100">
 						<hr className='modal-line'/>
 
 						<span className="fs-16 gray-1 fw-400 ls-125 white or-text">
@@ -104,10 +169,16 @@ const Header = () => {
 						<input
 							type="text"
 							name="user"
-							id="user"
+							id="user_register"
 							placeholder='Username'
 							className='input fs-16 fw-350'
+							value={userName}
+							onChange={(e) => setUserName(e.target.value)}
 						/>
+
+						{errorId === 'user' && (
+							<MdOutlineErrorOutline className='error-icon'/>
+						)}
 					</div>
 
 					<div className="form-input-field w100">
@@ -119,7 +190,13 @@ const Header = () => {
 							id="email"
 							placeholder='Email address'
 							className='input fs-16 fw-350'
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
 						/>
+
+						{errorId === 'email' && (
+							<MdOutlineErrorOutline className='error-icon'/>
+						)}
 					</div>
 
 					<div className="form-input-field w100">
@@ -128,10 +205,16 @@ const Header = () => {
 						<input
 							type="password"
 							name="password"
-							id="password"
+							id="password_register"
 							placeholder='Password'
 							className='input fs-16 fw-350'
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
 						/>
+
+						{errorId === 'confirm' && (
+							<MdOutlineErrorOutline className='error-icon'/>
+						)}
 					</div>
 
 					<div className="form-input-field w100">
@@ -143,18 +226,31 @@ const Header = () => {
 							id="confirm_password"
 							placeholder='Confirm password'
 							className='input fs-16 fw-350'
+							value={confirmPassword}
+							onChange={(e) => setConfirmPassword(e.target.value)}
 						/>
+
+						{errorId === 'confirm' && (
+							<MdOutlineErrorOutline className='error-icon'/>
+						)}
 					</div>
 
 					<div className="flex w100 justify-center align-center">
 						<button
 							className="black white-bg capital fw-450 fs-16 btn-1 no-deco ls-05 c-pointer w100 m-t-20"
+							onClick={handleRegister}
 						>
 							Sign Up
 						</button>
 					</div>
+					
+					{error && (
+						<span className="error-message fs-14 fw-400 ls-05 text-center">
+							{error}
+						</span>
+					)}
 
-					<div className="flex gap-12 align-center justify-center w100 m-t-20">
+					<div className="flex gap-12 align-center justify-center w100">
 						<hr className='modal-line'/>
 
 						<span className="fs-16 gray-1 fw-400 ls-125 white or-text">
@@ -179,6 +275,38 @@ const Header = () => {
                 </div>
             );
         }
+		else if (modal === 'success') {
+			return (
+				<div className="m-t-20 flex flex-column gap-12 w100">
+					<p className="fs-18 fw-400 ls-05 white">
+						Registered succesfully.
+					</p>
+
+					<button
+							onClick={() => openModal('login')}
+							className='black white-bg capital fw-450 fs-16 btn-1 no-deco ls-05 c-pointer'
+						>
+							Login now
+					</button>
+				</div>
+			);
+		}
+		else if (modal === 'Success') {
+			return (
+				<div className="m-t-20 flex flex-column gap-12 w100">
+					<p className="fs-16 fw-400 ls-05 white">
+						<span className="gray-1">Logged in as </span>{userName}
+					</p>
+
+					<button
+						onClick={closeModal}
+						className='black white-bg capital fw-450 fs-16 btn-1 no-deco ls-05 c-pointer'
+					>
+						Close
+					</button>
+				</div>
+			);
+		}
         return null;
     };
 
@@ -283,6 +411,7 @@ const Header = () => {
 					</li>
 				</ul>
 
+				{!isLoggedIn && (
 				<ul className="nav-list flex align-center gap-24">
 					<li className="nav-item">
 						<button
@@ -301,8 +430,12 @@ const Header = () => {
 							Sign In
 						</button>
 					</li>
+				</ul>
+				)}
 
-					{isLoggedIn && (
+
+				{isLoggedIn && (
+				<ul className="nav-list flex align-center gap-24">
 					<li className="nav-item">
 						<Link
 							to='/login'
@@ -313,8 +446,8 @@ const Header = () => {
 							Account
 						</Link>
 					</li>
-					)}
 				</ul>
+				)}
 			</nav>
         </header>
     );

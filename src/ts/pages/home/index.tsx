@@ -135,8 +135,8 @@ const Home = () => {
 
 								<input
 									type="text"
-									name=""
-									id="" 
+									name="location"
+									id="location" 
 									placeholder='Select Location'
 									className='p-6-12'
 								/>
@@ -151,8 +151,8 @@ const Home = () => {
 
 								<input
 									type="text"
-									name=""
-									id="" 
+									name="pickup_location"
+									id="pickup_location" 
 									placeholder='Select Location'
 									className='p-6-12'
 								/>
