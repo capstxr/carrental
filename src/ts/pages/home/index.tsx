@@ -1,6 +1,6 @@
 // Import modules
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 // Import components
 import FAQ from '../../components/body/faq';
