@@ -577,3 +577,17 @@ html {
 		padding: 24px !important;
 	}
 }
+
+@media screen and (max-width: 360px) {
+	.modal {
+		.fs-16 {
+			font-size: 14px !important;
+		}
+
+		.flex:last-of-type {
+			flex-direction: column;
+		}
+
+
+	}
+}
