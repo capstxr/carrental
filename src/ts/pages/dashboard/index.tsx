@@ -79,6 +79,42 @@ const Dashboard = () => {
 		);
 	}
 
+	const RenderTabContent = () => {
+		return (
+			<div className="main-c">
+				{activeTab === 0 && (
+				<div className="flex flex-column gap-36">
+					<span>Hello, World!</span>
+					<span>Hello, World!</span>
+					<span>Hello, World!</span>
+					<span>Hello, World!</span>
+					<span>Hello, World!</span>
+					<span>Hello, World!</span>
+					<span>Hello, World!</span>
+					<span>Hello, World!</span>
+					<span>Hello, World!</span>
+					<span>Hello, World!</span>
+				</div>
+				)}
+
+				{activeTab === 1 && (
+				<div className="flex flex-column gap-36">
+					<span>Profile</span>
+					<span>Profile</span>
+					<span>Profile</span>
+					<span>Profile</span>
+					<span>Profile</span>
+					<span>Profile</span>
+					<span>Profile</span>
+					<span>Profile</span>
+					<span>Profile</span>
+					<span>Profile</span>
+				</div>
+				)}	
+			</div>
+		);
+	}
+
 	return (
 		<main className="main">
 			<section
@@ -123,7 +159,7 @@ const Dashboard = () => {
 							<Tab
 								icon={<FaHome className="fs-24"/>}
 								name="Dashboard"
-								link='#'
+								link='#main'
 								index={0}
 							/>
 
@@ -149,9 +185,7 @@ const Dashboard = () => {
 						</div>
 					</div>
 
-					<div className="main-c">
-						<span>Hello, World!</span>
-					</div>
+					<RenderTabContent/>
 				</div>
 			</section>
 		</main>
