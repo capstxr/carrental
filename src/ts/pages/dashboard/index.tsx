@@ -39,11 +39,14 @@ const Dashboard = () => {
 		}
 	}
 
-	useEffect(() => {
+	const LoginCheck = () => {
 		if (!isLoggedIn) {
 			return navigate('/');
 		}
+	}
 
+	useEffect(() => {
+		LoginCheck();
 		getUserData();
 		document.title = "EzRental - Dashboard";
 		window.scrollTo(0,0);
