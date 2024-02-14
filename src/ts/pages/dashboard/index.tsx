@@ -1,5 +1,5 @@
 // Import modules
-import { useEffect, useState, useContext, useCallback } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../../../server/HostHandler";
 
@@ -43,11 +43,11 @@ const Dashboard = () => {
 		if (!isLoggedIn) {
 			return navigate('/');
 		}
-		
+
 		getUserData();
 		document.title = "EzRental - Dashboard";
 		window.scrollTo(0,0);
-	}, []);
+	}, [isLoggedIn, navigate]);
 
 	const [ activeTab, setActiveTab ] = useState<number>(0);
 
