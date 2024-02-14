@@ -108,7 +108,7 @@ const Dashboard = () => {
 						<div className="flex flex-column gap-12 w100 justify-center align-center">
 							<img
 								src="/images/placeholder_pfp.jpg"
-								alt="Profile picture"
+								alt="Profile"
 								className="pfp"
 								loading="lazy"
 							/>
