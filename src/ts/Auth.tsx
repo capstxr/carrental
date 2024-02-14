@@ -1,5 +1,6 @@
 // Auth.tsx
 import React, { createContext, useState, ReactNode } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface AuthContextType {
   isLoggedIn: boolean;
@@ -12,6 +13,8 @@ export const AuthContext = createContext<AuthContextType | null>(null);
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 	const [isLoggedIn, setIsLoggedIn] = useState<boolean>(!!localStorage.getItem('token'));
 
+	const nav = useNavigate();
+
 	const login = () => {
 		setIsLoggedIn(!!localStorage.getItem('token'));
 	};
@@ -19,6 +22,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 	const logout = () => {
 		setIsLoggedIn(false);
 		localStorage.removeItem('token');
+		nav('/');
 	};
 
 	return (

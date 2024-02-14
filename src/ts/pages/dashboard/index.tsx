@@ -39,18 +39,15 @@ const Dashboard = () => {
 		}
 	}
 
-	const LoginCheck = useCallback(() => {
+	useEffect(() => {
 		if (!isLoggedIn) {
 			return navigate('/');
 		}
-	}, [isLoggedIn, navigate]);
-
-	useEffect(() => {
-		LoginCheck();
+		
 		getUserData();
 		document.title = "EzRental - Dashboard";
 		window.scrollTo(0,0);
-	}, [LoginCheck, getUserData]);
+	}, []);
 
 	const [ activeTab, setActiveTab ] = useState<number>(0);
 

@@ -28,35 +28,35 @@ import { AuthProvider } from './Auth';
 
 function App() {
 	return (
-		<AuthProvider>
-			<Router>
-				<Header />
+		<Router>
+			<AuthProvider>
+			<Header />
 
-				<Routes>
-					<Route
-						path='/'
-						element={<Home/>}
-					/>
+			<Routes>
+				<Route
+					path='/'
+					element={<Home/>}
+				/>
 
-					<Route
-						path='/about'
-						element={<About/>}
-					/>
+				<Route
+					path='/about'
+					element={<About/>}
+				/>
 
-					<Route
-						path='/dashboard'
-						element={<Dashboard/>}
-					/>
+				<Route
+					path='/dashboard'
+					element={<Dashboard/>}
+				/>
 
-					<Route
-						path='/*'
-						element={<NotFound/>}
-					/>
-				</Routes>
+				<Route
+					path='/*'
+					element={<NotFound/>}
+				/>
+			</Routes>
 
-				<Footer />
-			</Router>
-		</AuthProvider>
+			<Footer />
+			</AuthProvider>
+		</Router>
 	);
 }
 
