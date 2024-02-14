@@ -14,20 +14,16 @@ import './dashboard.scss';
 
 const Dashboard = () => {
 	const authContext = useContext<any>(AuthContext);
-	const { isLoggedIn } = authContext;
+	const { isLoggedIn, logout } = authContext;
 	const navigate = useNavigate();
 
 	const [ userData, setUserData ] = useState<any>({});
 
 	async function getUserData() {
-		console.log(!!localStorage.getItem('token'));
-
 		try {
 			const response = await axiosInstance.post(
 				'/get-account-data', { token: localStorage.getItem('token') }
 			);
-
-			console.log(response);
 
 			setUserData({
 				username: response.data.message.username,
@@ -140,6 +136,7 @@ const Dashboard = () => {
 
 							<button
 								className="b-4 flex gap-12 max-c align-center p-6-12 white-bg black no-border c-pointer"
+								onClick={logout}
 							>
 								<FaSignOutAlt className="fs-24"/>
 
