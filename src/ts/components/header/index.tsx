@@ -12,22 +12,18 @@ import { MdOutlineErrorOutline } from "react-icons/md";
 // Import css
 import './header.scss';
 
-// Axios
-import axiosInstance from '../../../server/HostHandler';
+// Auth
+import useAuthentication from '../../useAuthentication';
+import { useContext  } from 'react';
+import { AuthContext } from '../../Auth';
 
 const Header = () => {
-	const [ isLoggedIn, setIsLoggedIn ] = useState<boolean>(false);
+    const authContext = useContext<any>(AuthContext);
+
+    const { isLoggedIn } = authContext;
 
     const [isOpen, setIsOpen] = useState(false);
     const [modal, setModal] = useState('');
-
-	const [ userName, setUserName ] = useState<string>('');
-	const [ email, setEmail ] = useState<string>('');
-	const [ password, setPassword ] = useState<string>('');
-	const [ confirmPassword, setConfirmPassword ] = useState<string>('');
-
-	const [ error, setError ] = useState<string>('');
-	const [ errorId, setErrorId ] = useState<string>('');
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -47,47 +43,20 @@ const Header = () => {
         setIsOpen(false);
     };
 
-	async function handleRegister() {
-		try {
-			const response = await axiosInstance.post(
-				'/register', 
-				{
-					user: userName,
-					email: email,
-					password: password,
-					confirm_password: confirmPassword
-				}
-			);
-			setError(response.data.error);
-			setErrorId(response.data.id);
-
-			if (response.data.success)
-				openModal('success');
-		} catch (error) {
-			
-		}
-	}
-
-	async function handleLogin() {
-		try {
-			const response = await axiosInstance.post(
-				'/login', 
-				{
-					user: userName,
-					password: password
-				}
-			);
-
-			setError(response.data.error);
-
-			if (response.data.success) {
-				openModal('Success');
-				setIsLoggedIn(true);
-			}
-		} catch (error) {
-			
-		}
-	}
+    const {
+        error,
+        errorId,
+        userName,
+        email,
+        password,
+        confirmPassword,
+        setUserName,
+        setEmail,
+        setPassword,
+        setConfirmPassword,
+        handleRegister,
+        handleLogin
+    } = useAuthentication(openModal);
 
     const renderModalContent = () => {
         if (modal === 'login') {
@@ -100,7 +69,7 @@ const Header = () => {
 							type="text"
 							name="user"
 							id="user_login"
-							placeholder='Email or username'
+							placeholder='Username'
 							className='input fs-16 fw-350'
 							value={userName}
 							onChange={(e) => setUserName(e.target.value)}
@@ -337,6 +306,7 @@ const Header = () => {
                     </div>
                 </div>
             )}
+
 			<nav
 				id="nav"
 				className="content flex justify-space align-center"
@@ -433,15 +403,13 @@ const Header = () => {
 				</ul>
 				)}
 
-
 				{isLoggedIn && (
 				<ul className="nav-list flex align-center gap-24">
 					<li className="nav-item">
 						<Link
-							to='/login'
+							to='/dashboard'
 							rel='noreferrer noopener nofollow'
-							className='black white-bg capital fw-450 fs-16 no-deco ls-05'
-							onClick={handleLinkClick}
+							className='black white-bg capital fw-450 fs-16 btn-1 no-deco ls-05 c-pointer'
 						>
 							Account
 						</Link>

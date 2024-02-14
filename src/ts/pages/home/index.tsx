@@ -10,7 +10,7 @@ import './home.scss';
 
 const Home = () => {
 	useEffect(() => {
-		document.title = "Drivee - Home";
+		document.title = "EzRental - Home";
 		window.scrollTo(0,0);
 	}, []);
 
@@ -369,21 +369,21 @@ const Home = () => {
 							image='male_car.webp'
 							name='Ben Dover'
 							head='Best cars for rent in Europe'
-							text='I do businnes around Europe all the time. This is where Drivee comes in really handy for me. They provide a nice and easy to use system.'
+							text='I do businnes around Europe all the time. This is where EzRental comes in really handy for me. They provide a nice and easy to use system.'
 						/>
 
 						<Review
 							image='2.webp'
 							name='Mike Oxlong'
 							head='Excellent car rent service'
-							text='I have been using Drivee on all of my trips abroad and the service is excellent. I can find cars for all my needs for good prices everywhere I go.'
+							text='I have been using EzRental on all of my trips abroad and the service is excellent. I can find cars for all my needs for good prices everywhere I go.'
 						/>
 
 						<Review
 							image='3.webp'
 							name='Moe Lester'
 							head='My go-to vehicle rental company'
-							text="I'm a regular customer of five years. I like the pricing and wide selection of vehicles Drivee offers for vacations and business standards."
+							text="I'm a regular customer of five years. I like the pricing and wide selection of vehicles EzRental offers for vacations and business standards."
 						/>
 					</div>
 				</div>

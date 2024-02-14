@@ -1,5 +1,10 @@
 // Import modules
 import { Link } from 'react-router-dom';
+import { useContext  } from 'react';
+
+// Auth
+import { AuthContext } from '../../Auth';
+import useAuthentication from '../../useAuthentication'; 
 
 // Import component css
 import './footer.scss';
@@ -9,6 +14,14 @@ import { FaFacebookF, FaTwitter, FaInstagram,
     FaLinkedinIn } from "react-icons/fa";
 
 const Footer = () => {
+    const authContext = useContext<any>(AuthContext);
+
+    const {
+        handleLogout
+    } = useAuthentication();
+
+    const { isLoggedIn } = authContext;
+
     return (
         <footer id="footer" className="wrapper">
             <div className="content flex justify-space">
@@ -151,6 +164,33 @@ const Footer = () => {
                         </Link>
                     </div>
                 </div>
+
+                {isLoggedIn && (
+                <div className="flex flex-column">
+                    <h2 className="fs-24 fw-550 ls-05 white">
+                        Account
+                    </h2>
+
+                    <div className="flex flex-column gap-12 m-t-20">
+                        <Link
+                            to='/dashboard'
+                            rel='noreferrer noopener nofollow'
+                            className='no-deco white fs-16 capital underline-hover'
+                        >
+                            Dashboard
+                        </Link>
+
+                        <button
+                            rel='noreferrer noopener nofollow'
+                            className='no-deco white fs-16 capital underline-hover transparent no-border c-pointer p-0'
+                            onClick={handleLogout}
+                        >
+                            Sign out
+                        </button>
+                    </div>
+                </div>
+                )}
+
             </div>
         </footer>
     );

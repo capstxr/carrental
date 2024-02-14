@@ -1,0 +1,32 @@
+#dashboard-hero {
+	margin-top: 75px;
+	height: 180px;
+	background-color: #000;
+}
+
+.bg-img {
+	object-fit: cover;
+	object-position: 50% 41%;
+	opacity: 0.3;
+}
+
+.db-content {
+	gap: 128px;
+}
+
+.sidebar {
+	width: 300px;
+	height: 450px;
+}
+
+.pfp {
+	width: 128px;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	object-position: center;
+	border-radius: 50%;
+}
+
+.main-c {
+	width: 100%;
+}

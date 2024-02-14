@@ -39,6 +39,10 @@ html {
 	position: absolute;
 }
 
+.right-0 {
+	right: 0;
+}
+
 .w100 {
 	width: 100%;
 }
@@ -297,6 +301,12 @@ html {
 
 // Padding
 
+.p-0 {
+	padding: 0;
+	margin: 0;
+	width: max-content;
+}
+
 .p-12-36 {
 	padding: 12px 36px;
 }
@@ -347,6 +357,10 @@ html {
 
 .justify-start {
 	justify-content: start !important;
+}
+
+.justify-end {
+	justify-content: end !important;
 }
 
 .align-center {

@@ -16,7 +16,7 @@ import { TbAutomaticGearbox } from "react-icons/tb";
 
 const About = () => {
     useEffect(() => {
-		document.title = "Drivee - About";
+		document.title = "EzRental - About";
 		window.scrollTo(0,0);
 	}, []);
 
@@ -132,7 +132,7 @@ const About = () => {
 
                 <div className="content relative z-1 flex flex-column justify-center align-center">
                     <h2 className="ls-05 text-center capital white a-hero-head">
-                        <span className="fs-54 fw-600">Drivee</span>
+                        <span className="fs-54 fw-600">EzRental</span>
                         <hr />
                         <span className="fs-42 fw-500">Your car rental company</span>
                     </h2>
@@ -152,7 +152,7 @@ const About = () => {
                     <div className="about-grid m-t-20">
                         <div className="left">
                             <p className="fs-16 black fw-400 lh-200 ls-03">
-                                At Drivee, we are driven by a singular mission: <span className="fs-18 fw-600">to provide</span> our customers with unparalleled convenience, reliability, and <span className="fs-18 fw-600">exceptional service</span> in every journey they undertake.
+                                At EzRental, we are driven by a singular mission: <span className="fs-18 fw-600">to provide</span> our customers with unparalleled convenience, reliability, and <span className="fs-18 fw-600">exceptional service</span> in every journey they undertake.
                                 We understand that renting a car or a bike is not merely about transportation; it's about facilitating unforgettable experiences, enabling seamless travel, <span className="fs-18 fw-600">and fostering lasting memories</span>.
                             </p>
                         </div>
@@ -181,7 +181,7 @@ const About = () => {
 
                         <div className="right">
                             <p className="fs-16 black fw-400 lh-200 ls-03">
-                                Our values are the foundation of everything we do. They guide our decisions, shape our interactions, and inspire us to provide exceptional service to our customers. We sorely focus on <span className="fw-600 fs-18">customer satisfaction</span>, <span className="fw-600 fs-18">quality and safety</span>, <span className="fw-600 fs-18">sustainability</span>, <span className="fw-600 fs-18">community engagement</span> and <span className="fs-18 fw-600">continuous improvement</span>. At Drivee, we prioritize your satisfaction and safety above everything else.
+                                Our values are the foundation of everything we do. They guide our decisions, shape our interactions, and inspire us to provide exceptional service to our customers. We sorely focus on <span className="fw-600 fs-18">customer satisfaction</span>, <span className="fw-600 fs-18">quality and safety</span>, <span className="fw-600 fs-18">sustainability</span>, <span className="fw-600 fs-18">community engagement</span> and <span className="fs-18 fw-600">continuous improvement</span>. At EzRental, we prioritize your satisfaction and safety above everything else.
                             </p>
                         </div>
                     </div>

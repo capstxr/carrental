@@ -1,6 +1,7 @@
 const express = require('express');
 require('dotenv').config();
-const axios = require('axios');
+
+const jwt = require('jsonwebtoken');
 
 const bcrypt = require('bcrypt');
 
@@ -147,9 +148,16 @@ app.post('/api/login', async (req, res) => {
             });
         }
 
-        return res.json({
-            success: true,
-            message: 'Authentication successful'
+        jwt.sign({ user }, 'secretkey', { expiresIn: '1h' }, (err, token) => {
+            if (err) {
+                res.sendStatus(500);
+            } else {
+                res.json({
+                    success: true,
+                    message: 'Authentication successful',
+                    token
+                });;
+            }
         });
     } catch (error) {
         console.error('Error: ', error);
@@ -158,6 +166,31 @@ app.post('/api/login', async (req, res) => {
             error: 'Internal Server Error' 
         });
     }
+});
+
+app.post('/api/get-account-data', async (req, res) => {
+    const { token } = req.body;
+
+    jwt.verify(token, 'secretkey', async (err, decoded) => {
+        if (err) {
+            return res.status(401).json({
+                success: false,
+                message: 'Failed to authenticate token'
+            });
+        } else {
+            const { user } = decoded;
+
+            // Get data from SQL table
+            const query = 'SELECT username, userid, email FROM users WHERE username = $1';
+            const response = await pool.query(query, [user]);
+
+            res.json({
+                success: true,
+                message: response.rows[0],
+                username: user
+            });
+        }
+    });
 });
 
 app.listen(PORT, () => {

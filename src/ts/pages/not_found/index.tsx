@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const NotFound = () => {
     useEffect(() => {
-		document.title = "Drivee - Error Page";
+		document.title = "EzRental - Error Page";
 		window.scrollTo(0,0);
 	}, []);
 
