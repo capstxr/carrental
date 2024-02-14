@@ -50,7 +50,7 @@ const Dashboard = () => {
 		getUserData();
 		document.title = "EzRental - Dashboard";
 		window.scrollTo(0,0);
-	}, []);
+	}, [LoginCheck]);
 
 	const [ activeTab, setActiveTab ] = useState<number>(0);
 
