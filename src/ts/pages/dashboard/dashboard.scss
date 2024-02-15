@@ -32,3 +32,13 @@
 	height: 550px;
 	overflow-y: hidden;
 }
+
+.order-table {
+	margin-left: -19px;
+	margin-top: 14px;
+	width: calc(100% + 19px);
+
+	tr {
+		height: 36px;
+	}
+}

@@ -410,6 +410,7 @@ const Header = () => {
 							to='/dashboard'
 							rel='noreferrer noopener nofollow'
 							className='black white-bg capital fw-450 fs-16 btn-1 no-deco ls-05 c-pointer'
+							onClick={handleLinkClick}
 						>
 							Account
 						</Link>
