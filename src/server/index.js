@@ -11,6 +11,8 @@ const cors = require('cors');
 
 const pool = require('./db');
 
+const Cookies = require('js-cookie');
+
 app.use(express.json());
 app.use(cors());
 
@@ -148,17 +150,17 @@ app.post('/api/login', async (req, res) => {
             });
         }
 
-        jwt.sign({ user }, 'secretkey', { expiresIn: '1h' }, (err, token) => {
+        jwt.sign({ user }, process.env.SECRET_KEY, { expiresIn: '1h' }, (err, token) => {
             if (err) {
-                res.sendStatus(500);
-            } else {
-                res.json({
-                    success: true,
-                    message: 'Authentication successful',
-                    token
-                });;
+                return res.sendStatus(500);
             }
+            res.json({
+                success: true,
+                message: 'Authentication successful',
+                token
+            });
         });
+        
     } catch (error) {
         console.error('Error: ', error);
 
@@ -171,7 +173,7 @@ app.post('/api/login', async (req, res) => {
 app.post('/api/get-account-data', async (req, res) => {
     const { token } = req.body;
 
-    jwt.verify(token, 'secretkey', async (err, decoded) => {
+    jwt.verify(token, process.env.SECRET_KEY, async (err, decoded) => {
         if (err) {
             return res.status(401).json({
                 success: false,

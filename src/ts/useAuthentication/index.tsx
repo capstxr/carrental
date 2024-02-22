@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react';
 import axiosInstance from '../../server/HostHandler';
+import Cookies from 'js-cookie';
 
 // Auth
 import { AuthContext } from '../Auth';
@@ -52,9 +53,14 @@ function useAuthentication(openModal?: (type: string) => void) {
 			setError(response.data.error);
 
 			if (response.data.success) {
+				Cookies.set(
+					'jwtToken',
+					response.data.token,
+					{ expires: 1 / 24 }
+				);
+
 				if (openModal) {
 					openModal('Success');
-					localStorage.setItem('token', response.data.token);
 				}
 
 				login();

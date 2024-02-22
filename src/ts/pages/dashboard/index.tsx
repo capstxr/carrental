@@ -2,6 +2,7 @@
 import { useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../../../server/HostHandler";
+import Cookies from "js-cookie";
 
 // Import icons
 import { FaHome, FaUserCircle, FaTag,
@@ -25,7 +26,7 @@ const Dashboard = () => {
 	async function getUserData() {
 		try {
 			const response = await axiosInstance.post(
-				'/get-account-data', { token: localStorage.getItem('token') }
+				'/get-account-data', { token: Cookies.get('jwtToken') }
 			);
 
 			setUserData({

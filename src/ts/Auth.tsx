@@ -1,6 +1,7 @@
 // Auth.tsx
 import React, { createContext, useState, ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 interface AuthContextType {
   isLoggedIn: boolean;
@@ -11,17 +12,17 @@ interface AuthContextType {
 export const AuthContext = createContext<AuthContextType | null>(null);
 
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-	const [isLoggedIn, setIsLoggedIn] = useState<boolean>(!!localStorage.getItem('token'));
+	const [isLoggedIn, setIsLoggedIn] = useState<boolean>(!!Cookies.get('jwtToken'));
 
 	const nav = useNavigate();
 
 	const login = () => {
-		setIsLoggedIn(!!localStorage.getItem('token'));
+		setIsLoggedIn(!!Cookies.get('jwtToken'));
 	};
 
 	const logout = () => {
 		setIsLoggedIn(false);
-		localStorage.removeItem('token');
+		Cookies.remove('jwtToken');
 		nav('/');
 	};
 
