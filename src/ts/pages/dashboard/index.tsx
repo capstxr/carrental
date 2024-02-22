@@ -34,9 +34,7 @@ const Dashboard = () => {
 				email: response.data.message.email,
 				id: response.data.message.userid
 			});
-		} catch (error) {
-			
-		}
+		} catch (error) { console.error(error) }
 	}
 
 	useEffect(() => {

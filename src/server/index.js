@@ -11,8 +11,6 @@ const cors = require('cors');
 
 const pool = require('./db');
 
-const Cookies = require('js-cookie');
-
 app.use(express.json());
 app.use(cors());
 
