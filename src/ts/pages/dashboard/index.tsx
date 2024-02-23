@@ -23,6 +23,9 @@ const Dashboard = () => {
 
 	const [ userData, setUserData ] = useState<any>({});
 
+	const [ firstName, setFirstName ] = useState<string>('');
+	const [ lastName, setLastName ] = useState<string>('');
+
 	async function getUserData() {
 		try {
 			const response = await axiosInstance.post(
@@ -227,17 +230,52 @@ const Dashboard = () => {
 				)}
 
 				{activeTab === 1 && (
-				<div className="flex flex-column gap-36">
-					<span>Profile</span>
-					<span>Profile</span>
-					<span>Profile</span>
-					<span>Profile</span>
-					<span>Profile</span>
-					<span>Profile</span>
-					<span>Profile</span>
-					<span>Profile</span>
-					<span>Profile</span>
-					<span>Profile</span>
+				<div className="flex flex-column gap-36 w100">
+					<h4 className="fs-24 fw-500 ls-05">Profile</h4>
+
+					<div className="flex gap-36 gray-3-border b-4 p-24 w100">
+						<div className="flex flex-column gap-12 w50">
+							<label
+								className="fs-20 fw-500 ls-05"
+								htmlFor="first_name"
+							>
+								First name
+							</label>
+
+							<div className="flex gap-12 align-center w100">
+								<input
+									type="text"
+									name="first_name"
+									id="first_name"
+									placeholder="John"
+									className="fs-18 fw-400 ls-05 p-6-12 b-4 gray-3-border w100"
+									onChange={(e) => setFirstName(e.target.value)}
+									value={firstName}
+								/>
+							</div>
+						</div>
+
+						<div className="flex flex-column gap-12 w50">
+							<label
+								className="fs-20 fw-500 ls-05"
+								htmlFor="first_name"
+							>
+								Last name
+							</label>
+
+							<div className="flex gap-12 align-center w100">
+								<input
+									type="text"
+									name="last_name"
+									id="last_name"
+									placeholder="Doe"
+									className="fs-18 fw-400 ls-05 p-6-12 b-4 gray-3-border w100"
+									value={lastName}
+									onChange={(e) => setLastName(e.target.value)}
+								/>
+							</div>
+						</div>
+					</div>
 				</div>
 				)}	
 			</div>

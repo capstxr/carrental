@@ -1,229 +1,25 @@
 const express = require('express');
 require('dotenv').config();
 
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
-const fs = require('fs');
-
 const app = express();
 const PORT = process.env.PORT;
 const cors = require('cors');
 
-const pool = require('./db');
-
 app.use(express.json());
 app.use(cors());
 
+const register = require('./auth/register');
+const login = require('./auth/login');
+const getData = require('./account/getData');
+const uploadPfp = require('./account/update/uploadPfp');
+
+app.use('/api/register', register);
+app.use('/api/login', login);
+app.use('/api/get-account-data', getData);
+app.use('/api/upload-pfp', uploadPfp);
+
 // demoPW123123!
 // AdminPassword123!
-
-app.post('/api/register', async (req, res) => {
-    const { user, email, password, confirm_password } = req.body;
-
-    try {
-        // Validation
-        if (!user || user === '')
-            return res.json({
-                success: false,
-                error: 'Missing username',
-                id: 'user'
-            });
-
-        if (!email || email === '')
-            return res.json({
-                success: false,
-                error: 'Missing email',
-                id: 'email'
-            });
-
-        // Check if username or email exists in database
-        const UserCheck = `SELECT * FROM users WHERE username = $1`;
-        const UserCheckResult = await pool.query(UserCheck, [user]);
-
-        if (UserCheckResult.rows.length > 0)
-            return res.json({
-                success: false,
-                error: "Username already exists",
-                id: 'user'
-            });
-
-        const EmailCheck = `SELECT * FROM users WHERE email = $1`;
-        const EmailCheckResult = await pool.query(EmailCheck, [email]);
-
-        if (EmailCheckResult.rows.length > 0)
-            return res.json({
-                success: false,
-                error: "Email already exists",
-                id: 'email'
-            });
-
-        if (!password || password === '')
-            return res.json({
-                success: false,
-                error: 'Missing password',
-                id: 'confirm'
-            });
-
-        var specialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
-
-        if (!specialChar.test(password))
-            return res.json({
-                success: false,
-                error: 'Password must contain at least one special character.',
-                id: 'confirm'
-            });
-            
-        if (password.includes(' '))
-            return res.json({
-                success: false,
-                error: 'Password cannot contain any spaces',
-                id: 'confirm'
-            });
-
-        if (password.length < 8)
-            return res.json({
-                success: false,
-                error: 'Password must be atleast 8 characters long.',
-                id: 'confirm'
-            });
-
-        if (!confirm_password || confirm_password !== password)
-            return res.json({
-                success: false,
-                error: "Passwords don't match",
-                id: 'confirm'
-            });
-
-        // Hash password
-        const salt = await bcrypt.genSalt(10);
-        const hashedPw = await bcrypt.hash(password, salt);
-
-        // Insert user into table
-        const query = `INSERT INTO users (username, email, password) VALUES ($1, $2, $3)`;
-
-        const values = [user, email, hashedPw];
-        const result = await pool.query(query, values);
-
-        return res.json({
-            success: true
-        });
-    } catch (error) {
-        console.error('Error: ', error);
-
-        res.status(500).json({
-            error: 'Internal Server Error' 
-        });
-    }
-});
-
-app.post('/api/login', async (req, res) => {
-    try {
-        const { user, password } = req.body;
-
-        if (!user || user === '' || !password || password === '') {
-            return res.json({
-                success: false,
-                error: 'Invalid username or password'
-            });
-        }
-
-        const query = 'SELECT * FROM users WHERE username = $1';
-        const { rows } = await pool.query(query, [user]);
-
-        if (rows.length === 0) {
-            return res.json({
-                success: false,
-                error: 'Incorrect username or password'
-            });
-        }
-
-        const foundUser = rows[0];
-
-        const passwordMatch = await bcrypt.compare(password, foundUser.password);
-
-        if (!passwordMatch) {
-            return res.json({
-                success: false,
-                error: 'Incorrect username or password'
-            });
-        }
-
-        jwt.sign({ user }, process.env.SECRET_KEY, { expiresIn: '1h' }, (err, token) => {
-            if (err) {
-                return res.sendStatus(500);
-            }
-            res.json({
-                success: true,
-                message: 'Authentication successful',
-                token
-            });
-        });
-        
-    } catch (error) {
-        console.error('Error: ', error);
-
-        res.status(500).json({
-            error: 'Internal Server Error' 
-        });
-    }
-});
-
-function GetProfilePicture(binary) {
-    const base64Image = binary.toString('base64');
-    const imageUrl = `data:image/png;base64,${base64Image}`;
-    return imageUrl;
-}
-
-app.post('/api/get-account-data', async (req, res) => {
-    const { token } = req.body;
-
-    jwt.verify(token, process.env.SECRET_KEY, async (err, decoded) => {
-        if (err) {
-            return res.status(401).json({
-                success: false,
-                message: 'Failed to authenticate token'
-            });
-        } else {
-            const { user } = decoded;
-
-            // Get data from SQL table
-            const query = 'SELECT * FROM users WHERE username = $1';
-            const response = await pool.query(query, [user]);
-
-            let profilePicture = null;
-            if (response.rows[0].profile_pic) {
-                profilePicture = await GetProfilePicture(response.rows[0].profile_pic);
-            }
-
-            res.json({
-                success: true,
-                message: response.rows[0],
-                username: user,
-                pfp: profilePicture
-            });
-        }
-    });
-});
-
-app.post('/api/upload-pfp', async (req, res) => {
-    const { img, id } = req.body;
-
-    try {    
-        if (!img) {
-          return res.status(400).json({ message: 'No file uploaded' });
-        }
-    
-        const imageBuffer = Buffer.from(img, 'base64');
-    
-        const query = 'UPDATE users SET profile_pic = $1 WHERE userid = $2';
-        await pool.query(query, [imageBuffer, id]);
-    
-        res.status(200).json({ message: 'Image uploaded successfully' });
-    } catch (error) {
-        console.error('Error uploading image:', error);
-        res.status(500).json({ message: 'Internal server error' });
-    }
-});
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
