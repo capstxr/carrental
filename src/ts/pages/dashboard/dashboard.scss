@@ -42,3 +42,33 @@
 		height: 36px;
 	}
 }
+
+.upload-pfp-wrapper {
+	width: 128px;
+	aspect-ratio: 1 / 1;
+	border-radius: 50%;
+	opacity: 1;
+	background-color: rgba(0,0,0,0.75);
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+
+	.icon {
+		width: 36px;
+		height: 36px;
+	}
+
+	&:hover {
+		opacity: 1;
+	}
+
+	.pfp-upload {
+		opacity: 0;
+		cursor: pointer;
+	}
+}

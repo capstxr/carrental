@@ -8,7 +8,7 @@ import Cookies from "js-cookie";
 import { FaHome, FaUserCircle, FaTag,
 		FaSignOutAlt, FaCalendar  } from "react-icons/fa";
 
-import { IoSpeedometerSharp } from "react-icons/io5";
+import { IoSpeedometerSharp, IoCamera } from "react-icons/io5";
 
 // Auth
 import { AuthContext } from '../../Auth';
@@ -32,7 +32,8 @@ const Dashboard = () => {
 			setUserData({
 				username: response.data.message.username,
 				email: response.data.message.email,
-				id: response.data.message.userid
+				id: response.data.message.userid,
+				pfp: response.data.pfp
 			});
 		} catch (error) { console.error(error) }
 	}
@@ -107,6 +108,29 @@ const Dashboard = () => {
 				</span>
 			</div>
 		);
+	}
+
+	const handlePictureUpload = async (event: any) => {
+		const file = event.target.files[0];
+		const reader = new FileReader();
+	
+		reader.onloadend = async () => {
+			try {
+				const imageData = reader.result?.toString().split(",")[1]; 
+
+				await axiosInstance.post(
+					'/upload-pfp', { img: imageData, id: userData.id }
+				);
+
+				await getUserData();
+			} catch (error) {
+				console.error(error);
+			}
+		};
+	
+		if (file) {
+			reader.readAsDataURL(file);
+		}
 	}
 
 	const RenderTabContent = () => {
@@ -242,13 +266,27 @@ const Dashboard = () => {
 				<div className="content flex db-content">
 					<div className="sidebar flex flex-column gap-24">
 						{userData && (
-						<div className="flex flex-column gap-12 w100 justify-center align-center">
+						<div className="flex flex-column gap-12 w100 justify-center align-center relative">
 							<img
-								src="/images/placeholder_pfp.jpg"
+								src={
+									userData.pfp ? userData.pfp
+									: "/images/placeholder_pfp.jpg"
+								}
 								alt="Profile"
-								className="pfp"
+								className="pfp relative"
 								loading="lazy"
 							/>
+
+							<div className="upload-pfp-wrapper">
+								<IoCamera className="icon fs-36 white"/>
+
+								<input
+									type="file"
+									className="pfp-upload w100 h100 absolute z-2"
+									accept="image/png, image/jpeg, image/webp"
+									onChange={handlePictureUpload}
+								/>
+							</div>
 
 							<span className="fs-18 fw-600 ls-05 black text-center">
 								{userData.username}

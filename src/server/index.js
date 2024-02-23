@@ -2,8 +2,8 @@ const express = require('express');
 require('dotenv').config();
 
 const jwt = require('jsonwebtoken');
-
 const bcrypt = require('bcrypt');
+const fs = require('fs');
 
 const app = express();
 const PORT = process.env.PORT;
@@ -168,6 +168,12 @@ app.post('/api/login', async (req, res) => {
     }
 });
 
+function GetProfilePicture(binary) {
+    const base64Image = binary.toString('base64');
+    const imageUrl = `data:image/png;base64,${base64Image}`;
+    return imageUrl;
+}
+
 app.post('/api/get-account-data', async (req, res) => {
     const { token } = req.body;
 
@@ -181,16 +187,42 @@ app.post('/api/get-account-data', async (req, res) => {
             const { user } = decoded;
 
             // Get data from SQL table
-            const query = 'SELECT username, userid, email FROM users WHERE username = $1';
+            const query = 'SELECT * FROM users WHERE username = $1';
             const response = await pool.query(query, [user]);
+
+            let profilePicture = null;
+            if (response.rows[0].profile_pic) {
+                profilePicture = await GetProfilePicture(response.rows[0].profile_pic);
+            }
 
             res.json({
                 success: true,
                 message: response.rows[0],
-                username: user
+                username: user,
+                pfp: profilePicture
             });
         }
     });
+});
+
+app.post('/api/upload-pfp', async (req, res) => {
+    const { img, id } = req.body;
+
+    try {    
+        if (!img) {
+          return res.status(400).json({ message: 'No file uploaded' });
+        }
+    
+        const imageBuffer = Buffer.from(img, 'base64');
+    
+        const query = 'UPDATE users SET profile_pic = $1 WHERE userid = $2';
+        await pool.query(query, [imageBuffer, id]);
+    
+        res.status(200).json({ message: 'Image uploaded successfully' });
+    } catch (error) {
+        console.error('Error uploading image:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
 });
 
 app.listen(PORT, () => {
