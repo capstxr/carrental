@@ -136,152 +136,6 @@ const Dashboard = () => {
 		}
 	}
 
-	const RenderTabContent = () => {
-		return (
-			<div className="main-c">
-				{activeTab === 0 && (
-				<div className="flex flex-column gap-36">
-					<div className="flex w-100 align-center justify-space">
-						<Stat
-							icon={<FaCalendar className="fs-42"/>}
-							amt={3}
-							name="Total orders"
-						/>
-
-						<Stat
-							icon={<IoSpeedometerSharp className="fs-42"/>}
-							amt={237}
-							name="Miles driven"
-						/>
-
-						<Stat
-							icon={<FaTag className="fs-42"/>}
-							amt={836}
-							name="Credits"
-						/>
-					</div>
-
-					<div className="flex flex-column gap-12">
-						<h3 className="fs-28 fw-600 ls-05 black">
-							Recent Orders
-						</h3>
-
-						<table className="w100 order-table">
-							<tr>
-								<th
-									className="fs-18 fw-600 black ls-05 text-center"
-								>
-									Booking No
-								</th>
-
-								<th
-									className="fs-18 fw-600 black ls-05 text-center"
-								>
-									Vehicle
-								</th>
-
-								<th
-									className="fs-18 fw-600 black ls-05 text-center"
-								>
-									Pick Up Location
-								</th>
-
-								<th
-									className="fs-18 fw-600 black ls-05 text-center"
-								>
-									Date
-								</th>
-
-								<th
-									className="fs-18 fw-600 black ls-05 text-center"
-								>
-									Return Date
-								</th>
-
-								<th
-									className="fs-18 fw-600 black ls-05 text-center"
-								>
-									Payment
-								</th>
-
-								<th
-									className="fs-18 fw-600 black ls-05 text-center"
-								>
-									Status
-								</th>
-							</tr>
-
-							<tr>
-								<td
-									className="fs-18 fw-500 black ls-05 text-center"
-								>
-									#02345
-								</td>
-
-								<td
-									className="fs-18 fw-500 black ls-05 text-center"
-								>
-									Kia Rio
-								</td>
-							</tr>
-						</table>
-					</div>
-				</div>
-				)}
-
-				{activeTab === 1 && (
-				<div className="flex flex-column gap-36 w100">
-					<h4 className="fs-24 fw-500 ls-05">Profile</h4>
-
-					<div className="flex gap-36 gray-3-border b-4 p-24 w100">
-						<div className="flex flex-column gap-12 w50">
-							<label
-								className="fs-20 fw-500 ls-05"
-								htmlFor="first_name"
-							>
-								First name
-							</label>
-
-							<div className="flex gap-12 align-center w100">
-								<input
-									type="text"
-									name="first_name"
-									id="first_name"
-									placeholder="John"
-									className="fs-18 fw-400 ls-05 p-6-12 b-4 gray-3-border w100"
-									onChange={(e) => setFirstName(e.target.value)}
-									value={firstName}
-								/>
-							</div>
-						</div>
-
-						<div className="flex flex-column gap-12 w50">
-							<label
-								className="fs-20 fw-500 ls-05"
-								htmlFor="first_name"
-							>
-								Last name
-							</label>
-
-							<div className="flex gap-12 align-center w100">
-								<input
-									type="text"
-									name="last_name"
-									id="last_name"
-									placeholder="Doe"
-									className="fs-18 fw-400 ls-05 p-6-12 b-4 gray-3-border w100"
-									value={lastName}
-									onChange={(e) => setLastName(e.target.value)}
-								/>
-							</div>
-						</div>
-					</div>
-				</div>
-				)}	
-			</div>
-		);
-	}
-
 	return (
 		<main className="main">
 			<section
@@ -366,7 +220,147 @@ const Dashboard = () => {
 						</div>
 					</div>
 
-					<RenderTabContent/>
+					<div className="main-c">
+					{activeTab === 0 && (
+					<div className="flex flex-column gap-36">
+						<div className="flex w-100 align-center justify-space">
+							<Stat
+								icon={<FaCalendar className="fs-42"/>}
+								amt={3}
+								name="Total orders"
+							/>
+
+							<Stat
+								icon={<IoSpeedometerSharp className="fs-42"/>}
+								amt={237}
+								name="Miles driven"
+							/>
+
+							<Stat
+								icon={<FaTag className="fs-42"/>}
+								amt={836}
+								name="Credits"
+							/>
+						</div>
+
+						<div className="flex flex-column gap-12">
+							<h3 className="fs-28 fw-600 ls-05 black">
+								Recent Orders
+							</h3>
+
+							<table className="w100 order-table">
+								<tr>
+									<th
+										className="fs-18 fw-600 black ls-05 text-center"
+									>
+										Booking No
+									</th>
+
+									<th
+										className="fs-18 fw-600 black ls-05 text-center"
+									>
+										Vehicle
+									</th>
+
+									<th
+										className="fs-18 fw-600 black ls-05 text-center"
+									>
+										Pick Up Location
+									</th>
+
+									<th
+										className="fs-18 fw-600 black ls-05 text-center"
+									>
+										Date
+									</th>
+
+									<th
+										className="fs-18 fw-600 black ls-05 text-center"
+									>
+										Return Date
+									</th>
+
+									<th
+										className="fs-18 fw-600 black ls-05 text-center"
+									>
+										Payment
+									</th>
+
+									<th
+										className="fs-18 fw-600 black ls-05 text-center"
+									>
+										Status
+									</th>
+								</tr>
+
+								<tr>
+									<td
+										className="fs-18 fw-500 black ls-05 text-center"
+									>
+										#02345
+									</td>
+
+									<td
+										className="fs-18 fw-500 black ls-05 text-center"
+									>
+										Kia Rio
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					)}
+
+					{activeTab === 1 && (
+					<div className="flex flex-column gap-36 w100">
+						<h4 className="fs-24 fw-500 ls-05">Profile</h4>
+
+						<div className="flex gap-36 gray-3-border b-4 p-24 w100">
+							<div className="flex flex-column gap-12 w50">
+								<label
+									className="fs-20 fw-500 ls-05"
+									htmlFor="first_name"
+								>
+									First name
+								</label>
+
+								<div className="flex gap-12 align-center w100">
+									<input
+										type="text"
+										name="first_name"
+										id="first_name"
+										placeholder="John"
+										className="fs-18 fw-400 ls-05 p-6-12 b-4 gray-3-border w100"
+										onChange={(e) => setFirstName(e.target.value)}
+										value={firstName}
+									/>
+								</div>
+							</div>
+
+							<div className="flex flex-column gap-12 w50">
+								<label
+									className="fs-20 fw-500 ls-05"
+									htmlFor="first_name"
+								>
+									Last name
+								</label>
+
+								<div className="flex gap-12 align-center w100">
+									<input
+										type="text"
+										name="last_name"
+										id="last_name"
+										placeholder="Doe"
+										className="fs-18 fw-400 ls-05 p-6-12 b-4 gray-3-border w100"
+										value={lastName}
+										onChange={(e) => setLastName(e.target.value)}
+									/>
+								</div>
+							</div>
+						</div>
+					</div>
+					)}	
+					</div>
 				</div>
 			</section>
 		</main>

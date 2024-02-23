@@ -16,6 +16,7 @@ router.post('/', async (req, res) => {
             });
         }
 
+        // Check if password & username match
         const query = 'SELECT * FROM users WHERE username = $1';
         const { rows } = await pool.query(query, [user]);
 
@@ -37,6 +38,7 @@ router.post('/', async (req, res) => {
             });
         }
 
+        // Sign token & cookie
         jwt.sign({ user }, process.env.SECRET_KEY, { expiresIn: '1h' }, (err, token) => {
             if (err) {
                 return res.sendStatus(500);
