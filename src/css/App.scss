@@ -95,6 +95,10 @@ html {
 	z-index: 5;
 }
 
+.z-999 {
+	z-index: 999;
+}
+
 .wrapper {
 	width: 100vw;
 	display: flex;
@@ -104,6 +108,14 @@ html {
 	.content {
 		width: 100%;
 		max-width: 1200px;
+	}
+}
+
+.hover-opacity {
+	transition: 0.25s;
+
+	&:hover {
+		opacity: 0.9;
 	}
 }
 
@@ -335,6 +347,10 @@ html {
 	padding: 24px;
 }
 
+.p-18 {
+	padding: 18px;
+}
+
 .p-12 {
 	padding: 12px;
 }
@@ -415,6 +431,14 @@ html {
 
 .m-t-40 {
 	margin-top: 40px;
+}
+
+.m-t-24 {
+	margin-top: 24px;
+}
+
+.m-b-24 {
+	margin-bottom: 24px;
 }
 
 .m-t-20 {

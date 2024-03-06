@@ -1,0 +1,25 @@
+.in-works-popup {
+    background-color: rgba(0,0,0,0.75);
+	z-index: 99999;
+	top: 0;
+	right: 0;
+
+	.content {
+		width: 350px;
+		height: max-content;
+		background-color: #fff;
+		border-radius: 8px;
+	}
+}
+
+.caution-wrapper {
+	border-radius: 50%;
+	background-color: var(--dark-gray-bg);
+	padding: 18px;
+	width: max-content;
+
+	* {
+		font-size: 54px;
+		transform: translateY(-1px);
+	}
+}

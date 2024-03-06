@@ -22,6 +22,7 @@ import NotFound from './pages/not_found';
 // Import global components
 import Header from './components/header';
 import Footer from './components/footer';
+import InWorks from './components/body/in-works-popup';
 
 // Import auth
 import { AuthProvider } from './Auth';
@@ -30,7 +31,10 @@ function App() {
 	return (
 		<Router>
 			<AuthProvider>
+
 			<Header />
+
+			<InWorks />
 
 			<Routes>
 				<Route
