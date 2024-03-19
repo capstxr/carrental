@@ -13,12 +13,14 @@ const register = require('./auth/register');
 const login = require('./auth/login');
 const getData = require('./account/getData');
 const uploadPfp = require('./account/update/uploadPfp');
+const saveChanges = require('./account/update/saveChanges');
 
 // Use middleware
 app.use('/api/register', register);
 app.use('/api/login', login);
 app.use('/api/get-account-data', getData);
 app.use('/api/upload-pfp', uploadPfp);
+app.use('/api/save-changes', saveChanges);
 
 // demoPW123123!
 // AdminPassword123!

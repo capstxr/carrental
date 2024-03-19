@@ -26,14 +26,56 @@ const Dashboard = () => {
 	const [ firstName, setFirstName ] = useState<string>('');
 	const [ lastName, setLastName ] = useState<string>('');
 
+	const [ isEditing, setIsEditing  ] = useState<boolean>(false);
+	const [ editBtnText, setEditBtnText ] = useState<string>('Edit');
+
+	async function handleChanges() {
+		// Request to save changes to database
+		try {
+			const response = await axiosInstance.post(
+				'/save-changes', {
+					userID: userData.id,
+					firstName,
+					lastName
+				}
+			);
+
+			if (response.status == 200) {
+				await getUserData();
+			}
+		} catch (error) { console.error(error) }
+	}
+
+	const handleEditingClick = () => {
+		isEditing
+			? setEditBtnText('Edit')
+			: setEditBtnText('Save Changes');
+
+		if (isEditing) {
+			handleChanges();
+		}
+
+		setIsEditing(!isEditing);
+	}
+
 	async function getUserData() {
 		try {
 			const response = await axiosInstance.post(
 				'/get-account-data', { token: Cookies.get('jwtToken') }
 			);
 
+			console.log(response);
+
+			const firstName = response.data.message.firstname,
+				lastName = response.data.message.lastname;
+
+			const name = `${firstName} ${lastName}`;
+
 			setUserData({
 				username: response.data.message.username,
+				firstName,
+				lastName,
+				name,
 				email: response.data.message.email,
 				id: response.data.message.userid,
 				pfp: response.data.pfp
@@ -181,7 +223,11 @@ const Dashboard = () => {
 							</div>
 
 							<span className="fs-18 fw-600 ls-05 black text-center">
-								{userData.username}
+								{userData.name ? (
+									userData.name
+								) : (
+									userData.userName
+								)}
 							</span>
 
 							<span className="fs-16 fw-500 ls-05 black">
@@ -313,7 +359,16 @@ const Dashboard = () => {
 
 					{activeTab === 1 && (
 					<div className="flex flex-column gap-36 w100">
-						<h4 className="fs-24 fw-500 ls-05">Profile</h4>
+						<div className="flex w100 justify-space align-center">
+							<h4 className="fs-24 fw-500 ls-05">Profile</h4>
+
+							<button
+								onClick={handleEditingClick}
+								className="c-pointer btn-1"
+							>
+								{editBtnText}
+							</button>
+						</div>
 
 						<div className="flex gap-36 gray-3-border b-4 p-24 w100">
 							<div className="flex flex-column gap-12 w50">
@@ -329,10 +384,11 @@ const Dashboard = () => {
 										type="text"
 										name="first_name"
 										id="first_name"
-										placeholder="John"
+										placeholder={userData.firstName || 'John'}
 										className="fs-18 fw-400 ls-05 p-6-12 b-4 gray-3-border w100"
 										onChange={(e) => setFirstName(e.target.value)}
 										value={firstName}
+										readOnly={!isEditing}
 									/>
 								</div>
 							</div>
@@ -350,10 +406,11 @@ const Dashboard = () => {
 										type="text"
 										name="last_name"
 										id="last_name"
-										placeholder="Doe"
+										placeholder={userData.lastName || 'Doe'}
 										className="fs-18 fw-400 ls-05 p-6-12 b-4 gray-3-border w100"
 										value={lastName}
 										onChange={(e) => setLastName(e.target.value)}
+										readOnly={!isEditing}
 									/>
 								</div>
 							</div>
