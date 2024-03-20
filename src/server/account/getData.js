@@ -30,9 +30,6 @@ router.post('/', async (req, res) => {
                 profilePicture = await GetProfilePicture(response.rows[0].profile_pic);
             }
 
-            let firstName = response.rows[0].firstname || null;
-            let lastName = response.rows[0].lastname || null;
-
             res.json({
                 success: true,
                 message: response.rows[0],
