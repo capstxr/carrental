@@ -40,7 +40,7 @@ const Dashboard = () => {
 				}
 			);
 
-			if (response.status == 200) {
+			if (response.status === 200) {
 				await getUserData();
 			}
 		} catch (error) { console.error(error) }
